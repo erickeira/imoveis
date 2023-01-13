@@ -1,0 +1,47 @@
+.container{
+    height: 700px;
+    width: 100%;
+    .containerDentro{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        .containerImgs{
+            height: 600px;
+            width: 800px;
+            position: absolute;
+            z-index: -1;
+            right: 0;
+            background-image: url("/slide/img01.jpg");
+        }
+        .containerBusca{
+            height: 90%;
+            width: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .containerInput{
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                border: 0 none;
+                outline: 0;
+                background-color: white;
+                padding: 0 20px;
+                height: 50px;
+                width: 300px;
+                border-radius: 10px;
+                .inputTexto{
+                    border: 0 none;
+                    outline: 0;
+                    height: 45px;
+                    width: 270px;
+                    border-radius: 10px;
+                }
+            }
+            
+        }
+    }
+    
+
+}
