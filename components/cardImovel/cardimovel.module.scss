@@ -1,6 +1,6 @@
 .container{
     width:  250px;
-    height: 300px;
+    height: 310px;
     margin: 10px 0;
     border: 0.3 solid #666;
     position: relative;
@@ -15,7 +15,7 @@
         position: relative;
     }
     .descricao{
-        padding: 0 10px;
+        padding: 15px 10px;
         .titulo{
             font-size: 15px;
             font-weight: 700;
@@ -60,7 +60,6 @@
         margin: 10px auto;
         border: 0.3 solid #666;
         position: relative;
-        padding-bottom: 20px;
         cursor: pointer;
         .imagem{
             width: 100%;
@@ -81,7 +80,6 @@
         margin: 10px auto;
         border: 0.3 solid #666;
         position: relative;
-        padding-bottom: 20px;
         cursor: pointer;
         .imagem{
             width: 100%;
