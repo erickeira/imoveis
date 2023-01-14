@@ -4,6 +4,7 @@ import  styles  from './cardimovel.module.scss'
 import {MdOutlineBed} from 'react-icons/md'
 import {GiBathtub } from 'react-icons/gi'
 import {AiOutlineCar} from 'react-icons/ai'
+import { BiMap } from 'react-icons/bi'
 
 export default function CardImovel(){
     return(
@@ -15,12 +16,11 @@ export default function CardImovel(){
                     alt="Casa"
                     fill
                     unoptimized
-                    style={{borderRadius: 4}}
                 />
             </div>
             <div className={styles.descricao}>
                 <div  className={styles.titulo}>Casa "Santo Andre" - Pequena com 3 quartos e suite</div>
-                <div  className={styles.localidade}>Rua Imaginaria, Jardim Falso - RJ</div>
+                <div  className={styles.localidade}><BiMap style={{marginRight: 5}}/>Rua Imaginaria, Jardim Falso - RJ</div>
                 <div  className={styles.valor}>R$ 500/mês</div>
                 <div  className={styles.itens}>
                     <div className={styles.item}>
