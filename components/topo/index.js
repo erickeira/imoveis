@@ -6,8 +6,9 @@ import { loaderImg } from '../../utils'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { BiMenuAltRight } from 'react-icons/bi'
 import { useState } from 'react'
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 import FormBusca from '../formBusca'
+import { AiOutlineClose } from 'react-icons/ai'
 
 export default function Topo(){
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -56,6 +57,7 @@ export default function Topo(){
                             src="/logo.png"
                             alt="Nome imobiliária"
                             fill
+                            unoptimized
                         />
                     </div>
                 </div>
@@ -99,15 +101,16 @@ export default function Topo(){
                     </ul>
                 </nav>
             </div>
-            <Modal
+            <ReactModal
                 isOpen={buscando}
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
                 contentLabel="Example Modal"
             >
-                <FormBusca style={{}}/>
-            </Modal>
+                <AiOutlineClose onClick={() => closeModal()} style={{position: 'absolute', right: 25}} size={20}/>
+                <FormBusca/>
+            </ReactModal>
         </div>
     )
 }

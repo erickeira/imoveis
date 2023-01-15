@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import SliderFilter from '../components/sliderFilter'
 import ListImoveis from '../components/listImoveis'
+import ListCorretores from '../components/listCorretores'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <main className={styles.main}>
         <SliderFilter/>
         <ListImoveis/>
+        <ListCorretores/>
       </main>
     </>
   )
