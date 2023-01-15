@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './inputselect.module.scss';
 import Select from 'react-select'
 

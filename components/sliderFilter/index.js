@@ -1,5 +1,4 @@
 import React, { useState} from 'react'
-import Select from 'react-select'
 import styles from './sliderfilter.module.scss'
 import Link from 'next/link'
 import {AiOutlineSearch} from 'react-icons/ai'
@@ -7,8 +6,8 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import { loaderImg } from '../../utils'
 import Image from 'next/image'
-import InputSelect from './inputSelect'
-import InputSlider from './inputSlider'
+import InputSelect from '../inputSelect'
+import InputSlider from '../inputSlider'
 
 
 export default function SliderFilter(){
