@@ -7,7 +7,7 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import { loaderImg } from '../../utils'
 import Image from 'next/image'
-import InputSelect from './InputSelect'
+import InputSelect from './inputSelect'
 import InputSlider from './inputSlider'
 
 
