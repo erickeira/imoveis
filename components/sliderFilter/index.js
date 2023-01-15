@@ -8,37 +8,12 @@ import { loaderImg } from '../../utils'
 import Image from 'next/image'
 import InputSelect from '../inputSelect'
 import InputSlider from '../inputSlider'
+import FormBusca from '../formBusca';
 
 
 export default function SliderFilter(){
 
-    const finalidades = [
-        { value: 'Selecione', label: 'Selecione' },
-        { value: 'Venda', label: 'Venda' },
-        { value: 'Aluguel', label: 'Aluguel' },
-    ]
-    
-    const tiposDeImoveis = [
-        { value: 'Selecione', label: 'Selecione' },
-        { value: 'Apartamento', label: 'Apartamento' },
-        { value: 'Casa', label: 'Casa' },
-    ] 
 
-    const estados = [
-        { value: 'Selecione', label: 'Selecione' },
-        { value: 'MS', label: 'MS' },
-        { value: 'RJ', label: 'RJ' },
-    ] 
-    const cidades = [
-        { value: 'Selecione', label: 'Selecione' },
-        { value: 'Campo Grande', label: 'Campo Grande' },
-        { value: 'Aquidauana', label: 'Aquidauana' },
-    ] 
-    const bairros = [
-        { value: 'Selecione', label: 'Selecione' },
-        { value: 'Centro', label: 'Centro' },
-        { value: 'Chácara cachoeira', label: 'Chácara Cachoeira' },
-    ] 
     const Slide = () => {
         const images = [
             "/slide/img01.jpg",
@@ -80,21 +55,7 @@ export default function SliderFilter(){
                 <div  className={`${styles.containerImgs1} slide-container`}>
                     <Slide/>
                 </div>
-                <div className={`${styles.containerBusca}`}>
-                    <div className={styles.label}>BUSQUE O IMÓVEL DESEJADO</div>
-                        <InputSelect options={finalidades} titulo={'Finalidade'}/>
-                        <InputSelect options={tiposDeImoveis} titulo={'Tipo de imóvel'}/>
-                        <div className={`doisSelect`}>
-                            <InputSelect options={estados} titulo={'Estado'} size={'90%'}/>
-                            <InputSelect options={cidades} titulo={'Cidade'}/>
-                        </div>
-                        <InputSelect options={bairros} titulo={'Bairros'} isMulti/>
-                        <InputSlider/>
-                    <div className={`botaoBuscar`}>
-                        Buscar
-                    </div>
-                </div>
-
+                <FormBusca marginLeft={50}/>
             </div>
 
 
