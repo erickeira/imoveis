@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState} from 'react'
 import Select from 'react-select'
 import styles from './sliderfilter.module.scss'
 import Link from 'next/link'
@@ -7,6 +7,9 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import { loaderImg } from '../../utils'
 import Image from 'next/image'
+import InputSelect from '../InputSelect'
+import InputSlider from '../inputSlider'
+
 
 export default function SliderFilter(){
 
@@ -79,15 +82,15 @@ export default function SliderFilter(){
                     <Slide/>
                 </div>
                 <div className={`${styles.containerBusca}`}>
-                    <div className={styles.label}>FAÇA UMA BUSCA</div>
-                    <Select options={finalidades || []} className={`select`} defaultValue={{ value: 'Finalidade', label: 'Finalidade' }}/>
-                    <Select options={tiposDeImoveis || []} className={`select`} defaultValue={{ value: 'Tipodeimóvel', label: 'Tipo de imóvel' }}/>
-                    <div className={`containerSelectLocalidade`}>
-                        <Select options={estados || []} className={`selectMenor`} defaultValue={{ value: 'Estado', label: 'Estado' }}/>
-                        <Select options={cidades || []} className={`selectMaior`} defaultValue={{ value: 'Cidade', label: 'Cidade' }}/>
-                    </div>
-                   
-                    <Select options={bairros || []} className={`select`} defaultValue={{ value: 'Bairros', label: 'Bairros' }}/>
+                    <div className={styles.label}>BUSQUE O IMÓVEL DESEJADO</div>
+                        <InputSelect options={finalidades} titulo={'Finalidade'}/>
+                        <InputSelect options={tiposDeImoveis} titulo={'Tipo de imóvel'}/>
+                        <div className={`doisSelect`}>
+                            <InputSelect options={estados} titulo={'Estado'} size={'90%'}/>
+                            <InputSelect options={cidades} titulo={'Cidade'}/>
+                        </div>
+                        <InputSelect options={bairros} titulo={'Bairros'} isMulti/>
+                        <InputSlider/>
                     <div className={`botaoBuscar`}>
                         Buscar
                     </div>

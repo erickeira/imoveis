@@ -1,0 +1,22 @@
+.containerSlider{
+    width: 87%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    .titulo{
+        color: #666;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+    .slider{
+        color: #666;
+    }
+    .containerLabel{
+        display: flex;
+        justify-content: space-between;
+        span{
+            font-size: 13px;
+            color: #666;
+        }
+    }
+}
+
