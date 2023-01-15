@@ -2,22 +2,31 @@
 .container{
     height: 600px;
     width: 100%;
+    overflow: hidden;
     // background-color: aliceblue;
+    .containerImgs1{
+        background-image: url("/slide/img01.jpg");
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        overflow: hidden;
+        height: 600px;
+        width: 100%;
+        z-index: -1;
+        right: 0;
+        .containerImagemSlide{
+            width: 1400px;
+            height: 600px;
+        }
+
+    }
     .containerDentro{
         height: 100%;
         width: 100%;
         display: flex;
         align-items: center;
         position: relative;
-        .containerImgs1{
-            // background-image: url("/slide/img01.jpg");
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            z-index: -1;
-            right: 0;
 
-        }
 
         
     }

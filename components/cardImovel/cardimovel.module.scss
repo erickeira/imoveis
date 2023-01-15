@@ -13,6 +13,11 @@
         width: 250px;
         height: 160px;
         position: relative;
+        overflow: hidden;
+    }
+    .imagemHover:hover{
+        // transform: scale(1.1);
+        // transition: 0.5s all ease-in-out;
     }
     .descricao{
         padding: 15px 10px;

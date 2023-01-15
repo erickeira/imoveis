@@ -17,8 +17,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <SliderFilter/>
-        <ListImoveis/>
+        <ListImoveis titulo={'destaque'}/>
         <ListCorretores/>
+        
       </main>
     </>
   )

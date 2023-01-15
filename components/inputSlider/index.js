@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import styles from './inputslider.module.scss'
 
 export default function InputSlider(){
-    const [value, setValue] = useState([20, 37]);
+    const [value, setValue] = useState([0, 1000]);
     function valuetext(value) {
         return `${value}°C`;
     }
@@ -13,10 +13,11 @@ export default function InputSlider(){
         <div className={`${styles.containerSlider}`}>
             <div className={`${styles.titulo}`}>Valor</div>
             <Slider
-                getAriaLabel={() => 'Minimum distance'}
                 value={value}
                 onChange={(e, values) => setValue(values)}
                 valueLabelDisplay="auto"
+                min={0}
+                max={1000}
                 getAriaValueText={valuetext}
                 disableSwap
                 className={`${styles.slider}`}

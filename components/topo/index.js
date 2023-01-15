@@ -51,7 +51,7 @@ export default function Topo(){
         <div className={styles.container}>
             <div className={`containerTela ${styles.containerDentro}`}>
                 <div className={styles.containerForaLogo}>
-                    <div className={styles.containerLogo}>
+                    <Link href={'/'} className={styles.containerLogo}>
                         <Image
                             loader={loaderImg}
                             src="/logo.png"
@@ -59,7 +59,7 @@ export default function Topo(){
                             fill
                             unoptimized
                         />
-                    </div>
+                    </Link>
                 </div>
                 
                 <nav>
@@ -68,10 +68,10 @@ export default function Topo(){
                             <Link  href="/" className={styles.textoLink}>HOME</Link>
                         </li>   
                         <li>
-                            <Link  href="/"  className={styles.textoLink}>ALUGUEL</Link>
+                            <Link  href="/aluguel"  className={styles.textoLink}>ALUGUEL</Link>
                         </li>
                         <li>
-                            <Link  href="/"  className={styles.textoLink}>VENDA</Link>
+                            <Link  href="/venda"  className={styles.textoLink}>VENDA</Link>
                         </li>
                         <li>
                             <Link  href="/"  className={styles.textoLink}>CONTATO</Link>
@@ -90,10 +90,10 @@ export default function Topo(){
                             <Link  href="/" className={styles.textoLink}>HOME</Link>
                         </li>   
                         <li>
-                            <Link  href="/"  className={styles.textoLink}>ALUGUEL</Link>
+                            <Link  href="/aluguel"  className={styles.textoLink}>ALUGUEL</Link>
                         </li>
                         <li>
-                            <Link  href="/"  className={styles.textoLink}>VENDA</Link>
+                            <Link  href="/venda"  className={styles.textoLink}>VENDA</Link>
                         </li>
                         <li>
                             <Link  href="/"  className={styles.textoLink}>CONTATO</Link>

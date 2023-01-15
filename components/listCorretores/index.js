@@ -6,11 +6,11 @@ export default function ListCorretores(){
     return(
         <div className={`containerTela`}>
             <h3 className={styles.label}>Nossos Corretores </h3>
-            <div className={`${styles.container}`} style={{marginBottom: 500}}>
-                <CardCorretor foto={`img01.png`}/>
-                <CardCorretor foto={`img02.png`}/>
-                <CardCorretor foto={`img03.png`}/>
-                <CardCorretor foto={`img03.png`}/>
+            <div className={`${styles.container}`} style={{marginBottom: 80}}>
+                <CardCorretor foto={`img01.png`} nome={'Erick Almeida'}/>
+                <CardCorretor foto={`img02.png`} nome={'Alisson Nogueira'}/>
+                <CardCorretor foto={`img03.png`} nome={'Fabricia Christina'}/>
+                <CardCorretor foto={`img04.png`} nome={'Bruno Alcantara'}/>
             </div>
         </div>
     )

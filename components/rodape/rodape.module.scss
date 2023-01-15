@@ -1,0 +1,85 @@
+.container{
+    background-image: url('/bgrodape.jpg');
+    background-size: cover;
+    height: 200px;
+    padding: 10px 15px 0 25px;
+    .containerDentro{
+        width: 100%;
+        height: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+        padding-top: 15px;
+        .label{
+            font-weight: 600;
+            font-size: 16PX;
+            margin-bottom: 10px;
+        }
+        .containerEndereco{
+            width: 30%;
+            height: 100%;
+            .endereco{
+                display: flex;
+                align-items: center;
+            }
+            .mapa{
+                margin-top: 10px;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+        .containerHorarios{
+            width: 30%;
+            height: 100%;
+            .diaSemana{
+                margin-bottom: 5px;
+                display: flex;
+                .dia{
+                    width: 40px;
+                }
+                .manha{
+                    width: 100px;
+                }
+                .tarde{
+                    width: 100px;
+                }
+            }
+        }
+        .containerSocial{
+            width: 30%;
+            height: 100%;
+            .itens{
+                .item{
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 766px) {
+    .container{
+        height: 400px;
+        .containerDentro{
+            display: flex;
+            flex-direction: column;
+            .containerEndereco{
+                width: 80%;
+                margin-bottom: 20px;
+            }
+            .containerHorarios{
+                width: 80%;
+                margin-bottom: 20px;
+            }
+            .containerSocial{
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+}

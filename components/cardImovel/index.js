@@ -15,6 +15,7 @@ export default function CardImovel(){
                     src="/imoveis/01.jpg"
                     alt="Casa"
                     fill
+                    className={styles.imagemHover}
                     unoptimized
                 />
             </div>

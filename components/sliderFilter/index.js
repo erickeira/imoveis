@@ -16,46 +16,46 @@ export default function SliderFilter(){
 
     const Slide = () => {
         const images = [
-            "/slide/img01.jpg",
-            "/slide/img02.jpg",
-            "/slide/img03.jpg",
+            "/slide/img01.jpg"
+            // "/slide/img02.jpg",
+            // "/slide/img03.jpg",
         ];
       
         return (
-          <div>
-              <Fade
+            <Fade
                 transitionDuration={1000}
                 arrows={false}
-              >
-                    {
-                        images.map(image => {
-                            return(
-                                <div className="each-slide">
+            >
+                {
+                    images.map(image => {
+                        return(
+                            <div className="each-slide">
+                                <div className={styles.containerImagemSlide}>
                                     <Image
                                         loader={loaderImg}
                                         src={image}
                                         alt="Casa"
-                                        width={1050}
+                                        width={1400}
                                         height={600}
                                         unoptimized
                                     />
                                 </div>
-                            )
-                        })
-                    }
-                 
-              </Fade>
-          </div>
+                            </div>
+                        )
+                    })
+                }
+                
+            </Fade>
         );
       };
 
     return(
         <div className={styles.container}>
+            <div  className={`${styles.containerImgs1} slide-container`}>
+                {/* <Slide/> */}
+            </div>
             <div className={`containerTela  ${styles.containerDentro}`}>
-                <div  className={`${styles.containerImgs1} slide-container`}>
-                    <Slide/>
-                </div>
-                <FormBusca marginLeft={50}/>
+                <FormBusca/>
             </div>
 
 
