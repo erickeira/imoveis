@@ -5,10 +5,11 @@ import {MdOutlineBed} from 'react-icons/md'
 import {GiBathtub } from 'react-icons/gi'
 import {AiOutlineCar} from 'react-icons/ai'
 import { BiMap } from 'react-icons/bi'
+import Link from "next/link";
 
 export default function CardImovel(){
     return(
-        <div className={styles.container}>
+        <Link href={'/imovel'} className={styles.container}>
             <div className={styles.imagem}>
                 <Image
                     loader={loaderImg}
@@ -37,6 +38,6 @@ export default function CardImovel(){
                 </div>
             </div>
             
-        </div>
+        </Link>
     )
 }

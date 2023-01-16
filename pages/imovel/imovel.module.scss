@@ -1,0 +1,24 @@
+.containerImagensFormulario{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.containerImagens{
+    width: 70%;
+}
+.containerFormulario{
+    // position: fixed;
+    width: 25%;
+    height: 500px;
+    margin: 0px 0 20px 10px;
+    z-index: -1;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    .titulo{
+        font-weight: 600;
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+}
