@@ -1,7 +1,7 @@
 .container{
     background-image: url('/bgrodape.jpg');
     background-size: cover;
-    height: 200px;
+    height: 300px;
     padding: 10px 15px 0 25px;
     .containerDentro{
         width: 100%;
@@ -17,16 +17,20 @@
             font-size: 16PX;
             margin-bottom: 10px;
         }
-        .containerEndereco{
+        .containerContato{
             width: 30%;
             height: 100%;
-            .endereco{
+            .info{
                 display: flex;
                 align-items: center;
+                margin-top:  20px;
+                text-decoration: none;
+                color: #fff;
             }
             .mapa{
-                margin-top: 10px;
+                margin-top: 20px;
                 text-decoration: underline;
+                color: #fff;
                 cursor: pointer;
             }
         }
@@ -54,6 +58,8 @@
                 .item{
                     display: flex;
                     align-items: center;
+                    text-decoration: underline;
+                    color: #fff;
                 }
             }
         }

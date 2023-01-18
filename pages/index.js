@@ -18,7 +18,7 @@ export default function Home() {
       <main className={styles.main}>
         <SliderFilter/>
         <ListImoveis titulo={'destaque'}/>
-        <ListCorretores/>
+        {/* <ListCorretores/> */}
         
       </main>
     </>
