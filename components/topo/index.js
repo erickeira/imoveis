@@ -65,7 +65,7 @@ export default function Topo(){
                 <nav>
                     <ul className={styles.containerLinks}>
                         <li>
-                            <Link  href="/" className={styles.textoLink}>HOME</Link>
+                            <Link  href="/" className={styles.textoLink}>INÍCIO</Link>
                         </li>   
                         <li>
                             <Link  href="/aluguel"  className={styles.textoLink}>ALUGUEL</Link>
@@ -87,7 +87,7 @@ export default function Topo(){
                     
                     <ul className={isMenuOpen ? styles.containerLinksMobile :  styles.containerLinksFechado}>
                         <li>
-                            <Link  href="/" className={styles.textoLink}>HOME</Link>
+                            <Link  href="/" className={styles.textoLink}>INÍCIO</Link>
                         </li>   
                         <li>
                             <Link  href="/aluguel"  className={styles.textoLink}>ALUGUEL</Link>

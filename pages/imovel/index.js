@@ -8,17 +8,10 @@ import { BiMap } from 'react-icons/bi'
 import styles from './imovel.module.scss'
 import Head from 'next/head';
 import InputArea from "../../components/inputArea";
+import ImageGallery from 'react-image-gallery';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
 export default function Imovel(){
     const [imagemSelecionada, setImagemSelecionada] = useState(0)
-    const defaultProps = {
-      center: {
-        lat: 10.99835602,
-        lng: 77.01502627
-      },
-      zoom: 11
-    };
 
   
     const caracteristicas = [
@@ -51,20 +44,20 @@ export default function Imovel(){
       ,"Salão de Jogos"
       ,"WC de serviço"
     ]
-    const images = [
-        {
-          url: '/imovel/01.jpg',
-          legenda: 'Leegenda',
-        },
-        {
-          url: '/imovel/01.jpg',
-          legenda: 'Legenda',
-        },
-        {
-          url: '/imovel/01.jpg',
-          legenda: 'Legenda',
-        },
-      ];
+    // const images = [
+    //     {
+    //       url: '/imovel/01.jpg',
+    //       legenda: 'Leegenda',
+    //     },
+    //     {
+    //       url: '/imovel/01.jpg',
+    //       legenda: 'Legenda',
+    //     },
+    //     {
+    //       url: '/imovel/01.jpg',
+    //       legenda: 'Legenda',
+    //     },
+    //   ];
     const especificacoes = [
       "3 Quartos", 
       "1 Banheiro", 
@@ -73,6 +66,21 @@ export default function Imovel(){
       "1 Garagem",
       "4° Andar"
     ]
+
+    const images = [
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ];
     return (
         <div className={`containerTela`}>
             <Head>
@@ -86,7 +94,8 @@ export default function Imovel(){
               <div className={`${styles.containerLadoEsquerdo}`}>
                 <div className={`${styles.containerImagens}`}>
                     <div className={`${styles.containerImagemSelecionada}`}>
-                      <Image src={images[imagemSelecionada].url} loader={loaderImg} fill/>
+                      <ImageGallery items={images} />;
+                      {/* <Image src={images[imagemSelecionada].url} loader={loaderImg} fill/> */}
                     </div>
                 </div>
                 <div className={`${styles.containerDescricao}`}>
