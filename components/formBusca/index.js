@@ -1,6 +1,5 @@
 import React, { useState} from 'react'
 import styles from './formbusca.module.scss'
-import 'react-slideshow-image/dist/styles.css';
 import InputSelect from '../inputSelect'
 import InputSlider from '../inputSlider'
 export default function FormBusca(props){
