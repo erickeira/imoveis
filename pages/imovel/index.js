@@ -69,18 +69,50 @@ export default function Imovel(){
 
     const images = [
       {
-        original: 'https://picsum.photos/id/1018/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+        original: '/imovel/02.jpg',
+        thumbnail: '/imovel/02.jpg',
       },
       {
-        original: 'https://picsum.photos/id/1015/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1015/250/150/',
-      },
-      {
-        original: 'https://picsum.photos/id/1019/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        original: '/imovel/03.jpg',
+        thumbnail: '/imovel/03.jpg',
       },
     ];
+    const InformacoesDinamicas = () => {
+      return(
+        <div>
+          <div className={`${styles.containerCodSociais}`}>
+            <div className={`${styles.labelCod}`}>
+              CÓD: 123
+            </div>
+            <div className={`${styles.containerSociais}`}>
+              <BsFacebook  size={25} color={'#3B5998'} style={{marginRight: 15}} />
+              <BsWhatsapp   size={25} color='#1BD741'/>
+            </div>
+          </div>
+          <div className={`${styles.containerValor}`}>
+              <div className={`${styles.valor}`}>R$ 4.000,00/mês</div>
+              {/* <div className={`${styles.infos}`}>
+                <div className={`${styles.info}`}>IPTU: R$  1.000,00</div>
+                <div className={`${styles.info}`}>Condomínio : R$ 500,00</div>
+              </div> */}
+
+          </div>
+          <div className={`${styles.containerEndereco}`}>
+            <BiMap style={{marginRight: 10}}/> Centro - Campo Grande
+          </div>
+
+          <div className={`${styles.containerCaracteristicas}`}>
+              {
+                caracteristicas.map((item, index) => {
+                  return(
+                    <div key={index} className={`${styles.caracteristica}`}>{` • ${item}`}</div>
+                  )
+                })
+              }
+          </div>
+        </div>
+      )
+    }
     return (
         <div className={`containerTela`}>
             <Head>
@@ -90,13 +122,17 @@ export default function Imovel(){
               <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={`${styles.tipoFinalidadeLabel}`}>Casa térra - Venda</div>
+            
             <div className={`${styles.containerDivisao}`}>
               <div className={`${styles.containerLadoEsquerdo}`}>
                 <div className={`${styles.containerImagens}`}>
                     <div className={`${styles.containerImagemSelecionada}`}>
-                      <ImageGallery items={images} />;
+                      <ImageGallery items={images} />
                       {/* <Image src={images[imagemSelecionada].url} loader={loaderImg} fill/> */}
                     </div>
+                </div>
+                <div className={`${styles.informacoesDinamicasMobile}`}>
+                  <InformacoesDinamicas/>
                 </div>
                 <div className={`${styles.containerDescricao}`}>
                   <div className={`${styles.label}`}>Descrição</div>
@@ -132,38 +168,9 @@ export default function Imovel(){
 
               </div>
               <div className={`${styles.containerLadoDireito}`}>
-
-                <div className={`${styles.containerCodSociais}`}>
-                  <div className={`${styles.labelCod}`}>
-                    CÓD: 123
-                  </div>
-                  <div className={`${styles.containerSociais}`}>
-                    <BsFacebook  size={25} color={'#3B5998'} style={{marginRight: 15}} />
-                    <BsWhatsapp   size={25} color='#1BD741'/>
-                  </div>
+                <div className={`${styles.informacoesDinamicas}`}>
+                  <InformacoesDinamicas/>
                 </div>
-                <div className={`${styles.containerValor}`}>
-                    <div className={`${styles.valor}`}>R$ 4.000,00/mês</div>
-                    <div className={`${styles.infos}`}>
-                      <div className={`${styles.info}`}>IPTU: R$  1.000,00</div>
-                      <div className={`${styles.info}`}>Condomínio : R$ 500,00</div>
-                    </div>
-
-                </div>
-                <div className={`${styles.containerEndereco}`}>
-                  <BiMap style={{marginRight: 10}}/> Centro - Campo Grande
-                </div>
-
-                <div className={`${styles.containerCaracteristicas}`}>
-                    {
-                      caracteristicas.map((item, index) => {
-                        return(
-                          <div key={index} className={`${styles.caracteristica}`}>{` • ${item}`}</div>
-                        )
-                      })
-                    }
-                </div>
-
                 <div className={`${styles.containerFormulario}`}>
                     <div className={`${styles.titulo}`}>ENTRAMOS EM CONTATO</div>
                     <div className={`${styles.containerInputs}`}>
