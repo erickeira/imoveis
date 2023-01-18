@@ -36,7 +36,7 @@
         }
         .valor{
             font-weight: 700;
-            color: #FFCD01;
+            color: #00a3de;
             margin: 10px 0 5px 0;
         }
         .itens{
@@ -57,7 +57,7 @@
     
 }
 .container:hover{
-    border: 0.4px solid #FFCD01;
+    border: 0.4px solid #00a3de;
 }
 
 @media screen and (max-width: 1045px) {
@@ -95,7 +95,7 @@
         }
         .imagem:hover{
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            border: 0.4 solid #FFCD01;
+            border: 0.4 solid #00a3de
         }
     }
 }
