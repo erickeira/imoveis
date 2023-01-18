@@ -1,3 +1,4 @@
+import React from "react";
 import Image from 'next/image';
 import { useState } from 'react';
 import InputTexto from '../../components/inputTexto';
@@ -5,9 +6,21 @@ import { loaderImg } from '../../utils';
 import { BsFacebook, BsTelephone, BsWhatsapp } from 'react-icons/bs'
 import { BiMap } from 'react-icons/bi'
 import styles from './imovel.module.scss'
+import Head from 'next/head';
+import InputArea from "../../components/inputArea";
 
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 export default function Imovel(){
     const [imagemSelecionada, setImagemSelecionada] = useState(0)
+    const defaultProps = {
+      center: {
+        lat: 10.99835602,
+        lng: 77.01502627
+      },
+      zoom: 11
+    };
+
+  
     const caracteristicas = [
       "Água"
       ,"Asfalto"
@@ -17,9 +30,6 @@ export default function Imovel(){
       ,"Sala de estar"
       ,"Sala de jantar"
       ,"Sala de TV"
-      ,"4 Suíte(s) com a/e"
-      ,"2 Sacada(s)"
-      ,"2 Vaga(s) de garagem"
       ,"Academia"
       ,"Alarme"
       ,"Área de lazer"
@@ -65,6 +75,12 @@ export default function Imovel(){
     ]
     return (
         <div className={`containerTela`}>
+            <Head>
+              <title>Casa térra - Venda</title>
+              <meta name="description" content="Ferreira Gomes Imoveis" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <link rel="icon" href="/favicon.ico" />
+            </Head>
             <div className={`${styles.tipoFinalidadeLabel}`}>Casa térra - Venda</div>
             <div className={`${styles.containerDivisao}`}>
               <div className={`${styles.containerLadoEsquerdo}`}>
@@ -79,6 +95,12 @@ export default function Imovel(){
                    Excelente apartamento residencial localizado na região com m² mais valorizado da cidade, entre as rua 13 de Junho e Afonso Pena, contendo 03 salas amplas, estar, jantar e TV mobiliadas, com sacada ampla, 04 suítes com armários planejados, mobiliados, com sacadas, sendo uma suíte master com closet, e banheira, cozinha planejada mobiliada, área de serviços completa com armários, quarto suíte de empregada completo com armários. Apartamento riquíssimo em armários planejados e completamente mobilhado, com salas, cozinha e quartos montados com todos os moveis, e acessório, fogão, geladeira, maquina de lavar.
                   </div>
                 </div>
+                <div className={`${styles.containerDescricao}`}>
+                  <div className={`${styles.label}`}>Informações adicionais</div>
+                  <div className={`${styles.descricao}`}>
+                    Mais informações
+                  </div>
+                </div>
                 <div className={`${styles.containerEspecificacoes}`}>
                   <div className={`${styles.label}`}>Especificações</div>
                   <div className={`${styles.especificacoes}`}>
@@ -91,6 +113,14 @@ export default function Imovel(){
                     }
                   </div>
                 </div>
+
+                <div className={`${styles.containerMapa}`}>
+                  <div className={`${styles.label}`}>Localização no mapa</div>
+                  <iframe className={`${styles.mapa}`} src="https://maps.google.com/maps?q=Centro%20-%20Campo%20Grande&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                  </iframe>
+                </div>
+
+
               </div>
               <div className={`${styles.containerLadoDireito}`}>
 
@@ -104,7 +134,12 @@ export default function Imovel(){
                   </div>
                 </div>
                 <div className={`${styles.containerValor}`}>
-                    R$ 4.000,00/mês
+                    <div className={`${styles.valor}`}>R$ 4.000,00/mês</div>
+                    <div className={`${styles.infos}`}>
+                      <div className={`${styles.info}`}>IPTU: R$  1.000,00</div>
+                      <div className={`${styles.info}`}>Condomínio : R$ 500,00</div>
+                    </div>
+
                 </div>
                 <div className={`${styles.containerEndereco}`}>
                   <BiMap style={{marginRight: 10}}/> Centro - Campo Grande
@@ -123,9 +158,13 @@ export default function Imovel(){
                 <div className={`${styles.containerFormulario}`}>
                     <div className={`${styles.titulo}`}>ENTRAMOS EM CONTATO</div>
                     <div className={`${styles.containerInputs}`}>
-                      <InputTexto titulo={'Nome'}/>
-                      <InputTexto titulo={'Email'}/>
-                      <InputTexto titulo={'Telefone'}/>
+                      <InputTexto titulo={'Nome'} type={`text`}/>
+                      <InputTexto titulo={'Email'}  type={`email`}/>
+                      <InputTexto titulo={'Telefone'}  type={`tel`}/>
+                      <InputArea titulo={'Mensagem'}/>
+                      <div className={`${styles.containerBotaoMensagem}`}>
+                        <div className={`${styles.botaoMensagem}`}>Enviar mensagem</div>
+                      </div>
                     </div>
                 </div>
               </div>

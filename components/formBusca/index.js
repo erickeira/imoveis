@@ -5,29 +5,18 @@ import InputSlider from '../inputSlider'
 export default function FormBusca(props){
     const { marginLeft } = props
     const finalidades = [
-        { value: 'Selecione', label: 'Selecione' },
+        { value: 'Todas', label: 'Todas' },
         { value: 'Venda', label: 'Venda' },
         { value: 'Aluguel', label: 'Aluguel' },
     ]
     
     const tiposDeImoveis = [
-        { value: 'Selecione', label: 'Selecione' },
+        { value: 'Todos', label: 'Todos' },
         { value: 'Apartamento', label: 'Apartamento' },
         { value: 'Casa', label: 'Casa' },
     ] 
-
-    const estados = [
-        { value: 'Selecione', label: 'Selecione' },
-        { value: 'MS', label: 'MS' },
-        { value: 'RJ', label: 'RJ' },
-    ] 
-    const cidades = [
-        { value: 'Selecione', label: 'Selecione' },
-        { value: 'Campo Grande', label: 'Campo Grande' },
-        { value: 'Aquidauana', label: 'Aquidauana' },
-    ] 
     const bairros = [
-        { value: 'Selecione', label: 'Selecione' },
+        { value: 'Todos', label: 'Todos' },
         { value: 'Centro', label: 'Centro' },
         { value: 'Chácara cachoeira', label: 'Chácara Cachoeira' },
     ] 
@@ -36,10 +25,6 @@ export default function FormBusca(props){
             <div className={styles.label}>BUSQUE O IMÓVEL DESEJADO</div>
                 <InputSelect options={finalidades} titulo={'Finalidade'}/>
                 <InputSelect options={tiposDeImoveis} titulo={'Tipo de imóvel'}/>
-                <div className={`doisSelect`}>
-                    <InputSelect options={estados} titulo={'Estado'} size={'90%'}/>
-                    <InputSelect options={cidades} titulo={'Cidade'}/>
-                </div>
                 <InputSelect options={bairros} titulo={'Bairros'} isMulti/>
                 <InputSlider/>
             <div className={`botaoBuscar`}>

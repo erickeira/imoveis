@@ -2,8 +2,8 @@ import React from "react"
 import styles from './inputtexto.module.scss'
 
 export default function InputTexto(props){
-    const { titulo, area,size} = props
+    const { titulo, area,size, type} = props
     return(
-        <input type={'text'} placeholder={titulo} className={`${styles.input}`}/>
+        <input type={type || 'text'} placeholder={titulo} className={`${styles.input}`}/>
     )
 }

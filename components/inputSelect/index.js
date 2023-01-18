@@ -13,7 +13,9 @@ export default function InputSelect(props){
     const colourStyles = {
         control: (baseStyles, state) => ({
             ...baseStyles,
-            height: 45,
+            minHeight: 40,
+            paddingTop: 5,
+            paddingBottom: 5,
             borderColor:'#fff',
             width: size || '100%',
             boxShadow: '0.2px 0.1px 3px #666'

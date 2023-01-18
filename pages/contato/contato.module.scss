@@ -1,0 +1,48 @@
+.container{
+    height: 600px;
+    padding: 30px 0;
+    display: flex;
+    .containerImagem{
+        width: 30%;
+        height: 20vw;
+        margin-right: 50px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .containerFormulario{
+        width: 50%;
+        height: 500px;
+        background-color: #00a3de;
+        border: 0.1px solid #666;
+        border-radius: 4px;
+        .containerInputs{
+            padding: 5%;
+            justify-content: center;
+        }
+        .titulo{
+            font-weight: 600;
+            font-size: 18px;
+            margin-left: 5%;
+            margin-top: 25px;
+            color: #FFF;
+            margin-bottom: 5px;
+        }
+        .containerBotaoMensagem{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin-top:  10px;
+            .botaoMensagem{
+                display: flex;
+                align-items: center;
+                background-color: #fff;
+                padding: 10px 10px;
+                border-radius: 3px;
+                color: #666;
+                cursor: pointer;
+            }
+        }
+    }
+}

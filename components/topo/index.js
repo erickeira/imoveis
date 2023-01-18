@@ -74,7 +74,7 @@ export default function Topo(){
                             <Link  href="/venda"  className={styles.textoLink}>VENDA</Link>
                         </li>
                         <li>
-                            <Link  href="/"  className={styles.textoLink}>CONTATO</Link>
+                            <Link  href="/contato"  className={styles.textoLink}>CONTATO</Link>
                         </li>
                     </ul>
 
@@ -96,7 +96,7 @@ export default function Topo(){
                             <Link  href="/venda"  className={styles.textoLink}>VENDA</Link>
                         </li>
                         <li>
-                            <Link  href="/"  className={styles.textoLink}>CONTATO</Link>
+                            <Link  href="/contato"  className={styles.textoLink}>CONTATO</Link>
                         </li>
                     </ul>
                 </nav>
