@@ -23,7 +23,7 @@ export default function CardImovel(){
             <div className={styles.descricao}>
                 <div  className={styles.titulo}>Casa "Santo Andre" - Pequena com 3 quartos e suite</div>
                 <div  className={styles.localidade}><BiMap style={{marginRight: 10}}/>Jardim Falso - RJ </div>
-                <div  className={styles.valor}>R$ 500/mês</div>
+                <div  className={styles.valor}>R$ 4.000,00/mês</div>
                 <div  className={styles.itens}>
                     <div className={styles.item}>
                         <MdOutlineBed size={15} style={{marginRight: 5}}/>  5 

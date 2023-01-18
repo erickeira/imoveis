@@ -55,7 +55,14 @@ export default function Imovel(){
           legenda: 'Legenda',
         },
       ];
-
+    const especificacoes = [
+      "3 Quartos", 
+      "1 Banheiro", 
+      "60,00 m² Privativos",
+      "60,00 m² de area externa",
+      "1 Garagem",
+      "4° Andar"
+    ]
     return (
         <div className={`containerTela`}>
             <div className={`${styles.tipoFinalidadeLabel}`}>Casa térra - Venda</div>
@@ -65,6 +72,24 @@ export default function Imovel(){
                     <div className={`${styles.containerImagemSelecionada}`}>
                       <Image src={images[imagemSelecionada].url} loader={loaderImg} fill/>
                     </div>
+                </div>
+                <div className={`${styles.containerDescricao}`}>
+                  <div className={`${styles.label}`}>Descrição</div>
+                  <div className={`${styles.descricao}`}>
+                   Excelente apartamento residencial localizado na região com m² mais valorizado da cidade, entre as rua 13 de Junho e Afonso Pena, contendo 03 salas amplas, estar, jantar e TV mobiliadas, com sacada ampla, 04 suítes com armários planejados, mobiliados, com sacadas, sendo uma suíte master com closet, e banheira, cozinha planejada mobiliada, área de serviços completa com armários, quarto suíte de empregada completo com armários. Apartamento riquíssimo em armários planejados e completamente mobilhado, com salas, cozinha e quartos montados com todos os moveis, e acessório, fogão, geladeira, maquina de lavar.
+                  </div>
+                </div>
+                <div className={`${styles.containerEspecificacoes}`}>
+                  <div className={`${styles.label}`}>Especificações</div>
+                  <div className={`${styles.especificacoes}`}>
+                    {
+                      especificacoes.map((item, index) => {
+                        return(
+                          <div className={`${styles.especificacao}`}>{item}</div>
+                        )
+                      })
+                    }
+                  </div>
                 </div>
               </div>
               <div className={`${styles.containerLadoDireito}`}>

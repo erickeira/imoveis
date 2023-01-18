@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Imobiliária</title>
-        <meta name="description" content="Imobiliária em construção" />
+        <title>Ferreira Gomes</title>
+        <meta name="description" content="Ferreira Gomes Imoveis" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
         <SliderFilter/>
