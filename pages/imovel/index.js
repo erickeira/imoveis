@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from 'next/image';
 import { useState } from 'react';
 import InputTexto from '../../components/inputTexto';
@@ -12,7 +12,11 @@ import ImageGallery from 'react-image-gallery';
 
 export default function Imovel(){
     const [imagemSelecionada, setImagemSelecionada] = useState(0)
+    const [loadinGallery, setLoadingGallery] = useState(true)
 
+    useEffect(() => {
+      setLoadingGallery(false)
+    },[])
   
     const caracteristicas = [
       "Água"
@@ -44,20 +48,7 @@ export default function Imovel(){
       ,"Salão de Jogos"
       ,"WC de serviço"
     ]
-    // const images = [
-    //     {
-    //       url: '/imovel/01.jpg',
-    //       legenda: 'Leegenda',
-    //     },
-    //     {
-    //       url: '/imovel/01.jpg',
-    //       legenda: 'Legenda',
-    //     },
-    //     {
-    //       url: '/imovel/01.jpg',
-    //       legenda: 'Legenda',
-    //     },
-    //   ];
+
     const especificacoes = [
       "3 Quartos", 
       "1 Banheiro", 
@@ -127,8 +118,13 @@ export default function Imovel(){
               <div className={`${styles.containerLadoEsquerdo}`}>
                 <div className={`${styles.containerImagens}`}>
                     <div className={`${styles.containerImagemSelecionada}`}>
-                      <ImageGallery items={images} />
-                      {/* <Image src={images[imagemSelecionada].url} loader={loaderImg} fill/> */}
+                      {
+                        !loadinGallery ? 
+                        <ImageGallery items={images} />
+                        :
+                        <div className={`${styles.mascaraGallery}`}/>
+                      }
+
                     </div>
                 </div>
                 <div className={`${styles.informacoesDinamicasMobile}`}>

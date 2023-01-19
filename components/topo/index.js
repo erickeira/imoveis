@@ -109,7 +109,9 @@ export default function Topo(){
                 contentLabel="Example Modal"
             >
                 <AiOutlineClose onClick={() => closeModal()} style={{position: 'absolute', right: 25}} size={20}/>
-                <FormBusca/>
+                <div                 className={styles.modal}>
+                    <FormBusca/>
+                </div>
             </ReactModal>
         </div>
     )

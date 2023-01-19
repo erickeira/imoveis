@@ -1,4 +1,5 @@
 import Head from "next/head";
+import HorizontalFilter from "../../components/horizontalFilter";
 import ListImoveis from "../../components/listImoveis";
 
 export default function Aluguel(){
@@ -11,6 +12,7 @@ export default function Aluguel(){
                 {/* <link rel="icon" href="/favicon.ico" /> */}
             </Head>
             <body>
+                <HorizontalFilter/>
                 <ListImoveis titulo={'aluguel'}/>
             </body>
         </>

@@ -8,6 +8,77 @@
     justify-content: center;
     align-items: center;
     // margin-left: 50px;
+    .inputsHorizontais{
+        width: 100%;
+        .inputHorizontal{
+            width: 100%;
+            margin: 0 20px;
+            position: relative;
+        }
+    }
+    .botaoBuscar{
+        width: 90%;
+        height: 40px;
+        margin: 0 5%;
+        border-radius: 5px;
+        background-color: #00a3de;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-weight: 600;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        cursor: pointer;
+    }
+    .botaoBuscar:hover{
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    }
+    .label{
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: #666;
+    }
+}
+.containerBuscaHorizontal{
+    height: 200px;
+    width: 75%;
+    padding: 0 3%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .inputsHorizontais{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        align-items: center;
+        .inputHorizontal{
+            width: 35%;
+            position: relative;
+        }
+        .botaoBuscar{
+            width: 30%;
+            height: 50px;
+            border-radius: 5px;
+            background-color: #00a3de;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: 600;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            cursor: pointer;
+        }
+        .botaoBuscar:hover{
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+    }
+    // margin-left: 50px;
     .label{
         font-size: 20px;
         margin-bottom: 20px;

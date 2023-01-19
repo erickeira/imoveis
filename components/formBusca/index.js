@@ -3,7 +3,7 @@ import styles from './formbusca.module.scss'
 import InputSelect from '../inputSelect'
 import InputSlider from '../inputSlider'
 export default function FormBusca(props){
-    const { marginLeft } = props
+    const { marginLeft, horizontal } = props
     const finalidades = [
         { value: 'Todas', label: 'Todas' },
         { value: 'Venda', label: 'Venda' },
@@ -21,15 +21,22 @@ export default function FormBusca(props){
         { value: 'Chácara cachoeira', label: 'Chácara Cachoeira' },
     ] 
     return(
-        <div className={`${styles.containerBusca}`} style={{marginLeft: marginLeft}}>
-            <div className={styles.label}>BUSQUE O IMÓVEL DESEJADO</div>
-                <InputSelect options={finalidades} titulo={'Finalidade'}/>
-                <InputSelect options={tiposDeImoveis} titulo={'Tipo de imóvel'}/>
-                <InputSelect options={bairros} titulo={'Bairros'} isMulti/>
-                <InputSlider/>
-            <div className={`botaoBuscar`}>
-                Buscar
-            </div>
+        <div className={`${horizontal ? styles.containerBuscaHorizontal : styles.containerBusca}`} style={{marginLeft: marginLeft}}>
+                {!horizontal ? <div className={styles.label}>BUSQUE O IMÓVEL DESEJADO</div> : null}
+                <div className={styles.inputsHorizontais}>
+                    <div className={styles.inputHorizontal}>
+                        <InputSelect options={finalidades} titulo={'Finalidade'}/>
+                        <InputSelect options={tiposDeImoveis} titulo={'Tipo de imóvel'}/>
+                    </div>
+                    <div className={styles.inputHorizontal}>
+                        <InputSelect options={bairros} titulo={'Bairros'} isMulti/>
+                        <InputSlider notitle/>
+                    </div>
+                    <div className={styles.botaoBuscar}>
+                        {horizontal ? 'Filtrar' :  'Buscar' }
+                    </div>
+                </div>
+
         </div>
 
     )

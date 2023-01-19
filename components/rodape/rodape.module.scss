@@ -69,11 +69,12 @@
 
 @media screen and (max-width: 766px) {
     .container{
-        height: 400px;
+        width: 94;
+        height: 500px;
         .containerDentro{
             display: flex;
             flex-direction: column;
-            .containerEndereco{
+            .containerContato{
                 width: 80%;
                 margin-bottom: 20px;
             }

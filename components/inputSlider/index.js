@@ -4,14 +4,15 @@ import { styled } from '@mui/material/styles';
 
 import styles from './inputslider.module.scss'
 
-export default function InputSlider(){
+export default function InputSlider(props){
+    const { notitle } = props
     const [value, setValue] = useState([0, 1000]);
     function valuetext(value) {
         return `${value}°C`;
     }
     return(
         <div className={`${styles.containerSlider}`}>
-            <div className={`${styles.titulo}`}>Valor</div>
+            { !notitle ? <div className={`${styles.titulo}`}>Valor</div> : null}
             <Slider
                 value={value}
                 onChange={(e, values) => setValue(values)}
