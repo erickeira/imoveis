@@ -11,14 +11,14 @@ export default function DetalhesImovel(props){
             <div className={`${styles.containerDentro} containerTelaAdmin`}>
                 <div className={`${styles.containerForm}`}>
                     <div className={`${styles.flexInput}`}>
-                        <InputSelect 
+                        {/* <InputSelect 
                             onChange={e => callbackchange({condicao: e.value})} 
                             titulo={'Condição'} 
                             options={condicoes.map(item => { return {value: item, label: item}})} 
                             style={{borderColor: '#fff'}} 
                             size={230}
                             selecionado={dadosImovel.condicao  || ''}
-                        />
+                        /> */}
                         <InputSelect 
                             onChange={e => callbackchange({finalidade: e.value})} 
                             titulo={'Finalidade'} 
