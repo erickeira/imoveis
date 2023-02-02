@@ -17,7 +17,7 @@ export default function DetalhesImovel(props){
                             options={condicoes.map(item => { return {value: item, label: item}})} 
                             style={{borderColor: '#fff'}} 
                             size={230}
-                            selecionado={dadosImovel.condicao}
+                            selecionado={dadosImovel.condicao  || ''}
                         />
                         <InputSelect 
                             onChange={e => callbackchange({finalidade: e.value})} 
@@ -25,7 +25,7 @@ export default function DetalhesImovel(props){
                             options={finalidades.map(item => { return {value: item, label: item}})} 
                             style={{borderColor: '#fff'}} 
                             size={230}
-                            selecionado={dadosImovel.finalidade}
+                            selecionado={dadosImovel.finalidade || ''}
                         />
                         <InputSelect 
                             onChange={e => callbackchange({tipo: e.value})} 
@@ -33,7 +33,7 @@ export default function DetalhesImovel(props){
                             options={tiposdeimovel.map(item => { return {value: item, label: item}})} 
                             style={{borderColor: '#fff'}} 
                             size={300}
-                            selecionado={dadosImovel.tipo}
+                            selecionado={dadosImovel.tipo || ''}
                         />
                     </div>
                     <div className={`${styles.label}`}>Localização</div>
@@ -43,7 +43,7 @@ export default function DetalhesImovel(props){
                             options={bairros.map(item => { return {value: item, label: item}})} 
                             style={{borderColor: '#fff'}} 
                             size={230}
-                            selecionado={dadosImovel.bairro}
+                            selecionado={dadosImovel.bairro || ''}
                             onChange={e => callbackchange({bairro: e.value})} 
                         /> 
                         <InputTexto titulo={'Endereço'} options={caracteristicas.map(item => { return {value: item, label: item}})} style={{width: 400}}/>

@@ -5,6 +5,7 @@ import Fotos from "../components/fotos";
 import { useState } from "react";
 import { bairros } from "../../../utils";
 import Head from "next/head";
+import Button from "../components/button";
 
 export default function Novoimovel(){
     
@@ -48,6 +49,9 @@ export default function Novoimovel(){
                 <Title titulo={'NOVO IMÓVEL'}/>
                 <DetalhesImovel dadosImovel={dadosImovel} callbackchange={e => mudarDadosImovel(e)} />
                 <Fotos callbackchange={e => mudarDadosImovel(e)}/>
+                <div style={{width: '100%',display: 'flex', justifyContent: 'flex-end'}}>
+                    <Button titulo={`Salvar`}/>
+                </div>
             </div> 
         </div>
         </>
