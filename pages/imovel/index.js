@@ -9,6 +9,8 @@ import styles from './imovel.module.scss'
 import Head from 'next/head';
 import InputArea from "../../components/inputArea";
 import ImageGallery from 'react-image-gallery';
+import Topo from '../../components/topo'
+import Rodape from '../../components/rodape'
 
 export default function Imovel(){
     const [imagemSelecionada, setImagemSelecionada] = useState(0)
@@ -112,8 +114,8 @@ export default function Imovel(){
               <meta name="viewport" content="width=device-width, initial-scale=1" />
               <link rel="icon" href="/favicon.ico" />
             </Head>
+            <Topo/>
             <div className={`${styles.tipoFinalidadeLabel}`}>Casa térra - Venda</div>
-            
             <div className={`${styles.containerDivisao}`}>
               <div className={`${styles.containerLadoEsquerdo}`}>
                 <div className={`${styles.containerImagens}`}>
@@ -181,6 +183,7 @@ export default function Imovel(){
                 </div>
               </div>
             </div>
+            <Rodape/>
         </div>
     );
 }

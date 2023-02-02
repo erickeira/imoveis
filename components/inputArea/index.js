@@ -2,8 +2,11 @@ import React from "react"
 import styles from './inputarea.module.scss'
 
 export default function InputArea(props){
-    const { titulo, area,size, type} = props
+    const { titulo, area,size, type, placeholder} = props
     return(
-        <textarea placeholder={titulo} className={`${styles.input}`}/>
+        <div className={`${styles.container}`}>
+            <span className={`${styles.titulo}`}>{titulo}</span>
+            <textarea placeholder={placeholder || ''} className={`${styles.input}`} style={{width: size || '100%'}}/>
+        </div>
     )
 }

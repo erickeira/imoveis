@@ -3,7 +3,6 @@
   box-sizing: border-box;
 }
 .select{
-    width: 90%;
     margin-bottom: 10px; 
     border-radius: 4px;
     appearance: none;
@@ -12,7 +11,9 @@
     text-indent: 1px;
     text-overflow: '';
     border: 0;
-    // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    position: relative;
  } 
 .containerSelectLocalidade{
     width: 90%;
@@ -25,5 +26,13 @@
  }
 .selectMaior{
     width: 58%;          
+}
+.titulo{
+    font-size: 14px;
+    color: #666;
+    margin-left: 10px;
+    padding-top: 5px;
+    position: absolute;
+    z-index: 1;
 }
 

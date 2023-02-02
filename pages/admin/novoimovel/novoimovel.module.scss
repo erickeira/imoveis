@@ -1,0 +1,17 @@
+.container{
+    .containerDentro{
+        .containerForm{
+            padding: 20px 0;
+            .label{
+               font-weight: 600;
+               margin-top: 20px;
+               margin-bottom: 10px;
+            }
+            .flexInput{
+                display: flex;
+                flex-direction: row;
+                gap: 25px;
+            }
+        }
+    }
+}

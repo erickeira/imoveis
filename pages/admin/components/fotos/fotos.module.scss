@@ -1,0 +1,56 @@
+.container{
+    .titulo{
+        font-size: 20px;
+        margin: 10px 0;
+    }
+    .gridContainer{
+        min-height: 200px;
+        min-width: 300px;
+        max-width: 1000px;
+        border: 1px dotted #666;
+        margin: 30px auto;
+        border-radius: 5px;
+        position: relative;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 10px;
+        .containerImagem{
+            position: relative;
+            width: 240px;
+            height: 150px;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            cursor: grab;
+            .imagemIndex{
+                background-color: rgba(0, 0, 0, 0.623);
+                position: absolute;
+                z-index: 1;
+                left: 5px;
+                top: 5px;
+                padding: 5px 10px;
+                border-radius: 3px;
+                color: #Fff;
+                font-size: 12px;
+            }
+            .deleteContainer{
+                background-color: rgba(0, 0, 0, 0.623);
+                position: absolute;
+                z-index: 1;
+                right: 5px;
+                top: 5px;
+                padding: 5px 10px;
+                border-radius: 3px;
+                color: rgb(255, 0, 0);
+                font-size: 12px;
+            }
+        }
+    }
+}

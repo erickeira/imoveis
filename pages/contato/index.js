@@ -6,6 +6,8 @@ import InputArea from "../../components/inputArea";
 import { loaderImg } from "../../utils";
 import Image from "next/image";
 import { BsMailbox } from 'react-icons/bs'
+import Topo from "../../components/topo";
+import Rodape from "../../components/rodape";
 
 export default function Contato(){
     return(
@@ -16,6 +18,7 @@ export default function Contato(){
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <Topo/>
             <body className={`${styles.container} containerTela`}>
                 <div className={`${styles.containerImagem}`} >
                     <BsMailbox size={120} color={`#d1d1d1`}/>
@@ -39,6 +42,7 @@ export default function Contato(){
                     </div>
                 </div>
             </body>
+            <Rodape/>
         </>
     )
 }
