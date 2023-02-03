@@ -15,6 +15,7 @@ export default function Novoimovel(){
         finalidade: '',
         tipo: '',
         bairro: '',
+        rua: '',
         titulo: '',
         areaconstruida: '',
         areatotal: '',
