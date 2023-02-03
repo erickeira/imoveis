@@ -4,15 +4,15 @@
         margin: 10px 0;
     }
     .gridContainer{
-        min-height: 200px;
+        min-height: 340px;
         min-width: 300px;
-        max-width: 1000px;
+        max-width: 1050px;
         border: 1px dotted #666;
         margin: 30px auto;
         border-radius: 5px;
         position: relative;
         display: flex;
-        gap: 12px;
+        gap: 20px;
         flex-wrap: wrap;
         padding: 10px;
         .containerImagem{
@@ -48,9 +48,23 @@
                 top: 5px;
                 padding: 5px 10px;
                 border-radius: 3px;
-                color: rgb(255, 0, 0);
+                color: rgb(247, 247, 247);
                 font-size: 12px;
+                cursor:auto;
             }
+            .deleteContainer:hover{
+                color: rgb(255, 0, 0);
+            }
+            .imagem{
+                height: 100%;
+            }
+        }
+        .addContainer{
+            margin: auto;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
         .containerDragActive{
             position: absolute;

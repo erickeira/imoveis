@@ -6,19 +6,19 @@ import { FaTrashAlt } from 'react-icons/fa'
 import { useDrag, useDrop } from "react-dnd";
 import { useRef, useState, useCallback, createRef, useEffect } from 'react';
 import Dropzone, {useDropzone} from 'react-dropzone';
+import {BsCardImage} from 'react-icons/bs'
 
 export default function Fotos(props){
     const dropzoneRef = createRef();
     const { fotos, callbackchange } = props
-    console.log(fotos)
-    const [segurandoFoto, setSegurandoFoto] = useState(false)
+
     const onDrop = (files) => incluirFotos(files)
     function incluirFotos(files){
         files.map((file) => {
+            if(fotos.length == 10) return
             const reader = new FileReader();
             reader.onload = function (e) {
                 let novasImagens = fotos
-                // novasImagens.push(e.target.result)
                 novasImagens.push(e)
                 callbackchange(novasImagens)
             };
@@ -41,28 +41,17 @@ export default function Fotos(props){
         },
         onDrop,
         noClick: fotos.length ? true : false,
-        noDrag: segurandoFoto ? true : false,
+        noDrag: fotos.length ? true : false
     });
 
-    useEffect(() => {
-        if(segurandoFoto){
-            setTimeout(() => {
-                setSegurandoFoto(false)
-            }, 4000);
-        }
-    },[segurandoFoto])
-
     function mudarFotos(hoverItem, dragitem){
-        if(isDragActive) return
         let novasImagens = fotos
         let from = hoverItem.index
         let to = dragitem.index 
         var el = novasImagens[from];
-        console.log(novasImagens)
         novasImagens.splice(from, 1);
         novasImagens.splice(to, 0, el);
         callbackchange(novasImagens)
-
     }
 
     function removerImagem(index){
@@ -70,6 +59,7 @@ export default function Fotos(props){
         novasImagens.splice(index, 1);
         callbackchange(novasImagens)
     }
+
 
     const DragImagem = (e) => {
         const ref = useRef()
@@ -79,31 +69,28 @@ export default function Fotos(props){
             collect: monitor => ({
                 isDragging: monitor.isDragging(),
             }),
-            isDragging: (monitor) => {
-                if(!segurandoFoto) setSegurandoFoto(true)
-            },
-            end: () => {
-                if(segurandoFoto) setSegurandoFoto(false)
-            }
         })
         const [collectedProps, dropRef] = useDrop({
             accept: "CARD",
             hover(item,monitor){
                 if(item.index == e.index) return
                 mudarFotos(e,  item)
+                item.index = e.index
             },
+
         })
 
         dragRef(dropRef(ref));
+        console.log(isDragging, e.index)
         return(
             <div  ref={ref} style={{opacity: isDragging ? 0: 1}} className={styles.containerImagem}>
-                <span className={styles.imagemIndex}>{e.index}</span>
+                <span className={styles.imagemIndex}>{e.index + 1}</span>
                 <Image
                     // loader={loaderImg}
                     src={e.src}
                     alt="Casa"
                     fill
-                    className={styles.imagemHover}
+                    className={styles.imagem}
                     unoptimized
                 />
                 <div onClick={() => removerImagem(e.index)} className={styles.deleteContainer}>
@@ -113,18 +100,12 @@ export default function Fotos(props){
         )
     }
 
-    const files = acceptedFiles.map(file => (
-        <li key={file.path}>
-          {file.path} - {file.size} bytes
-        </li>
-      ));
-
     return(
         <div className={`${styles.container}`}>
-            <span className={`${styles.titulo}`}>Fotos</span>
-            <div {...getRootProps({className: 'dropzone'})} className={`${styles.gridContainer} `}>
-                {/* <input {...getInputProps()} /> */}
-                {isDragActive ? <div className={`${styles.containerDragActive} `}>Solte aqui</div> : null}
+            <span className={`${styles.titulo}`}>Fotos ( {fotos.length}/10 ) </span>
+            <div {...getRootProps({className: 'dropzone'})} style={{cursor: fotos.length ? 'default' : 'pointer'}} className={`${styles.gridContainer} `}>
+
+                {/* {isDragActive ? <div className={`${styles.containerDragActive} `}>Solte aqui</div> : null} */}
                 {
                     fotos.map((imagem, index) => {
                         return(
@@ -132,10 +113,24 @@ export default function Fotos(props){
                         )
                     })
                 }
-                <div {...getRootProps({className: 'dropzone'})} onClick={open} className={styles.containerImagem} style={{cursor: 'pointer'}}>
-                    <GrAdd size={20}/>
-                    <span>Adicionar</span>
-                </div>
+                {
+                    fotos.length && fotos.length < 10?
+                    <div {...getRootProps({className: 'dropzone'})} onClick={open} className={styles.containerImagem} style={{cursor: 'pointer'}}>
+                        <GrAdd size={20}/>
+                        <span>Adicionar</span>
+                    </div>
+                    :  null
+
+                }
+                {
+                    !fotos.length ?
+                    <div  className={styles.addContainer} style={{cursor: 'pointer'}}>
+                        <BsCardImage size={40}/>
+                        <span>Arraste ou clique para selecionar</span>
+                    </div>
+                    :null
+                }
+
             </div>
         </div>
     )

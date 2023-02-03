@@ -8,8 +8,6 @@ import Head from "next/head";
 import Button from "../components/button";
 
 export default function Novoimovel(){
-    
-
     const [dadosImovel, setDadosImovel] = useState({
         condicao: '',
         finalidade: '',
@@ -34,14 +32,13 @@ export default function Novoimovel(){
             "/imoveis/01.jpg",
             "/imoveis/02.jpg",
             "/imoveis/03.jpg",
-            "/imoveis/01.jpg"
+            "/imoveis/01.jpg",
         ]
     })
 
     function mudarDadosImovel(e){
         setDadosImovel({...dadosImovel, ...e})
     }
-    
     return(
         <>
         <Head>
