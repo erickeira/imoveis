@@ -11,6 +11,11 @@ import {BsCardImage} from 'react-icons/bs'
 export default function Fotos(props){
     const dropzoneRef = createRef();
     const { fotos, callbackchange } = props
+    const [isLoading ,setIsLoading] = useState(true)
+
+    useEffect(() => {
+        setIsLoading(false)
+    },[])
 
     const onDrop = (files) => incluirFotos(files)
     function incluirFotos(files){
@@ -81,7 +86,7 @@ export default function Fotos(props){
         })
 
         dragRef(dropRef(ref));
-        console.log(isDragging, e.index)
+
         return(
             <div  ref={ref} style={{opacity: isDragging ? 0: 1}} className={styles.containerImagem}>
                 <span className={styles.imagemIndex}>{e.index + 1}</span>
@@ -99,7 +104,7 @@ export default function Fotos(props){
             </div>
         )
     }
-
+    if(isLoading) return null
     return(
         <div className={`${styles.container}`}>
             <span className={`${styles.titulo}`}>Fotos ( {fotos.length}/10 ) </span>
