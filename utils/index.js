@@ -1,6 +1,16 @@
+
+import axios from "axios";
+const baseUrl = "http://localhost:3000"
+
+const api = axios.create({
+    baseURL: baseUrl,
+    headers: {'Content-Type': 'multipart/form-data'}
+  });
+
 const loaderImg = ({ src, width, quality }) => {
     return `${src}`
 }
+
 
 const condicoes = [
     'Novo',
@@ -117,5 +127,7 @@ export {
     finalidades,
     tiposdeimovel,
     caracteristicas,
-    numeros
+    numeros,
+    baseUrl,
+    api
 }

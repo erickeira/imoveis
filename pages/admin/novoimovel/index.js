@@ -3,19 +3,20 @@ import styles from './novoimovel.module.scss'
 import Title from '../components/title'
 import Fotos from "../components/fotos";
 import { useState } from "react";
-import { bairros } from "../../../utils";
+import { api, bairros, baseUrl } from "../../../utils";
 import Head from "next/head";
 import Button from "../components/button";
 
+
 export default function Novoimovel(){
     const [dadosImovel, setDadosImovel] = useState({
-        condicao: '',
-        finalidade: '',
-        tipo: '',
-        bairro: '',
-        rua: '',
+        condicao: 'novo',
+        finalidade: 'venda',
+        tipo: 'apartamento',
+        bairro: 'asdad',
+        rua: 'asdad',
         titulo: '',
-        areaconstruida: '',
+        areaconstruida: '123',
         areatotal: '',
         caracteristicas: [],
         descricao: '',
@@ -39,6 +40,15 @@ export default function Novoimovel(){
     function mudarDadosImovel(e){
         setDadosImovel({...dadosImovel, ...e})
     }
+
+    async function publicarImovel(){
+        // console.log(JSON.stringify(dadosImovel))
+        // return
+        api.post(`/imoveis`, JSON.stringify(dadosImovel)).then(res => {
+            console.log(res.data)
+        }).catch(res => console.log(res.response.data))
+    }
+
     return(
         <>
         <Head>
@@ -53,7 +63,7 @@ export default function Novoimovel(){
                 <DetalhesImovel dadosImovel={dadosImovel} callbackchange={e => mudarDadosImovel(e)} />
                 <Fotos fotos={dadosImovel.fotos} callbackchange={e => mudarDadosImovel({fotos: e})}/>
                 <div style={{width: '100%',display: 'flex', justifyContent: 'flex-end'}}>
-                    <Button titulo={`Salvar`}/>
+                    <Button onClick={() => publicarImovel()} titulo={`Salvar`}/>
                 </div>
             </div> 
         </div>

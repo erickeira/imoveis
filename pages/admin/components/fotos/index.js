@@ -24,7 +24,7 @@ export default function Fotos(props){
             const reader = new FileReader();
             reader.onload = function (e) {
                 let novasImagens = fotos
-                novasImagens.push(e)
+                novasImagens.push(e.target)
                 callbackchange(novasImagens)
             };
             reader.readAsDataURL(file);
@@ -114,7 +114,7 @@ export default function Fotos(props){
                 {
                     fotos.map((imagem, index) => {
                         return(
-                            <DragImagem index={index} src={imagem.target ? imagem.target.result : imagem}/>
+                            <DragImagem index={index} src={imagem.result ? imagem.result : imagem}/>
                         )
                     })
                 }
