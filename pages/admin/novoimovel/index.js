@@ -29,7 +29,12 @@ export default function Novoimovel(){
         iptu: '',
         condominio: '',
         valor: '',
-        Fotos: []
+        fotos: [
+            "/imoveis/01.jpg",
+            "/imoveis/02.jpg",
+            "/imoveis/03.jpg",
+            "/imoveis/01.jpg"
+        ]
     })
 
     function mudarDadosImovel(e){
@@ -48,7 +53,7 @@ export default function Novoimovel(){
             <div className={`${styles.containerDentro} containerTelaAdmin`}>
                 <Title titulo={'NOVO IMÓVEL'}/>
                 <DetalhesImovel dadosImovel={dadosImovel} callbackchange={e => mudarDadosImovel(e)} />
-                <Fotos callbackchange={e => mudarDadosImovel(e)}/>
+                <Fotos fotos={dadosImovel.fotos} callbackchange={e => mudarDadosImovel({fotos: e})}/>
                 <div style={{width: '100%',display: 'flex', justifyContent: 'flex-end'}}>
                     <Button titulo={`Salvar`}/>
                 </div>

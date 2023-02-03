@@ -52,5 +52,17 @@
                 font-size: 12px;
             }
         }
+        .containerDragActive{
+            position: absolute;
+            z-index: 1;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            background-color: rgba(15, 15, 15, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 20px;
+        }
     }
 }
