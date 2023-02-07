@@ -1,8 +1,8 @@
-import InputTexto from '../../../../components/inputTexto'
-import InputSelect from '../../../../components/inputSelect'
-import InputArea from '../../../../components/inputArea'
+import InputTexto from '../inputTexto'
+import InputSelect from '../inputSelect'
+import InputArea from '../inputArea'
 import styles from './detalhesimovel.module.scss'
-import { bairros, condicoes, finalidades, tiposdeimovel, caracteristicas, numeros } from '../../../../utils'
+import { bairros, condicoes, finalidades, tiposdeimovel, caracteristicas, numeros } from '../../utils'
 
 export default function DetalhesImovel(props){
     const { callbackchange, dadosImovel } = props

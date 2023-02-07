@@ -1,11 +1,11 @@
-import DetalhesImovel from "../components/detalhesImovel";
+import DetalhesImovel from "../../../components/detalhesImovel";
 import styles from './novoimovel.module.scss'
-import Title from '../components/title'
-import Fotos from "../components/fotos";
+import Title from '../../../components/title'
+import Fotos from "../../../components/fotos";
 import { useState } from "react";
 import { api, bairros, baseUrl } from "../../../utils";
 import Head from "next/head";
-import Button from "../components/button";
+import Button from "../../../components/button";
 import axios from "axios";
 
 

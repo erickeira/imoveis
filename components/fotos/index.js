@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { loaderImg } from '../../../../utils'
+import { loaderImg } from '../../utils'
 import styles from './fotos.module.scss'
 import {GrAdd} from 'react-icons/gr'
 import { FaTrashAlt } from 'react-icons/fa'
