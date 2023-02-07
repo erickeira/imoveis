@@ -2,14 +2,16 @@ import DetalhesImovel from "../../../components/detalhesImovel";
 import styles from './novoimovel.module.scss'
 import Title from '../../../components/title'
 import Fotos from "../../../components/fotos";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { api, bairros, baseUrl } from "../../../utils";
 import Head from "next/head";
 import Button from "../../../components/button";
-import axios from "axios";
-
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import { AuthContext } from "../../../context";
 
 export default function Novoimovel(){
+    const { showAlert } = useContext(AuthContext)
     const [dadosImovel, setDadosImovel] = useState({
         condicao: 'novo',
         finalidade: 'venda',
@@ -38,8 +40,6 @@ export default function Novoimovel(){
     }
 
     async function publicarImovel(){
-        // console.log(JSON.stringify(dadosImovel))
-        // return
         const formData = new FormData();
         Object.entries(dadosImovel).map(([chave, valor], index) => {
             let novovalor = valor
@@ -50,13 +50,12 @@ export default function Novoimovel(){
             }
             formData.append(chave, novovalor)
         })
-        
-        for (const value of formData.values()) {
-            console.log(value);
-        }
+    
         api.post(`/imoveis`, formData).then(res => {
-            console.log(res.data)
-        }).catch(res => console.log(res.response.data))
+            showAlert.success('Sucesso', `Imóvel publicado - #${res.data.id}`)
+        }).catch(res => {
+            showAlert.warning('', res.response.data)
+        })
     }
 
 
@@ -76,6 +75,7 @@ export default function Novoimovel(){
                 <div style={{width: '100%',display: 'flex', justifyContent: 'flex-end'}}>
                     <Button onClick={() => publicarImovel()} titulo={`Salvar`}/>
                 </div>
+
             </div> 
         </div>
         </>
