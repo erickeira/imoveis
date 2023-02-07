@@ -12,26 +12,33 @@ export default function Fotos(props){
     const dropzoneRef = createRef();
     const { fotos, callbackchange } = props
     const [isLoading ,setIsLoading] = useState(true)
+    const [isLoadingFotos ,setIsLoadingFotos] = useState(false)
 
     useEffect(() => {
         setIsLoading(false)
     },[])
 
     const onDrop = (files) => incluirFotos(files)
-    function incluirFotos(files){
-        files.map((file) => {
+    async function incluirFotos(files){
+        setIsLoadingFotos(true)
+        let novasImagens = fotos
+        await files.map((file) => {
             if(fotos.length == 10) return
+            console.log(file)
+            let novaimagem = {}
+            novaimagem['file'] = file
             const reader = new FileReader();
             reader.onload = function (e) {
-                let novasImagens = fotos
-                novasImagens.push(e.target)
-                callbackchange(novasImagens)
+                novaimagem['src'] = e.target.result
+                novasImagens.push(novaimagem)
             };
             reader.readAsDataURL(file);
             return file;
         });
+        callbackchange(novasImagens)
+        setIsLoadingFotos(false)
     }
-
+    console.log(isLoadingFotos)
     const {
          getRootProps,
          getInputProps,
@@ -104,17 +111,17 @@ export default function Fotos(props){
             </div>
         )
     }
-    if(isLoading) return null
+    // if(isLoading) return null
     return(
         <div className={`${styles.container}`}>
             <span className={`${styles.titulo}`}>Fotos ( {fotos.length}/10 ) </span>
             <div {...getRootProps({className: 'dropzone'})} style={{cursor: fotos.length ? 'default' : 'pointer'}} className={`${styles.gridContainer} `}>
 
-                {/* {isDragActive ? <div className={`${styles.containerDragActive} `}>Solte aqui</div> : null} */}
+                {isLoadingFotos ? <div className={`${styles.containerDragActive} `}>Carregando..</div> : null}
                 {
                     fotos.map((imagem, index) => {
                         return(
-                            <DragImagem index={index} src={imagem.result ? imagem.result : imagem}/>
+                            <DragImagem index={index} src={imagem.src ? imagem.src : imagem}/>
                         )
                     })
                 }

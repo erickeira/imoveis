@@ -6,6 +6,7 @@ import { useState } from "react";
 import { api, bairros, baseUrl } from "../../../utils";
 import Head from "next/head";
 import Button from "../components/button";
+import axios from "axios";
 
 
 export default function Novoimovel(){
@@ -14,7 +15,7 @@ export default function Novoimovel(){
         finalidade: 'venda',
         tipo: 'apartamento',
         bairro: 'asdad',
-        rua: 'asdad',
+        endereco: 'asdad',
         titulo: '',
         areaconstruida: '123',
         areatotal: '',
@@ -29,12 +30,7 @@ export default function Novoimovel(){
         iptu: '',
         condominio: '',
         valor: '',
-        fotos: [
-            "/imoveis/01.jpg",
-            "/imoveis/02.jpg",
-            "/imoveis/03.jpg",
-            "/imoveis/01.jpg",
-        ]
+        fotos: [ ]
     })
 
     function mudarDadosImovel(e){
@@ -44,10 +40,25 @@ export default function Novoimovel(){
     async function publicarImovel(){
         // console.log(JSON.stringify(dadosImovel))
         // return
-        api.post(`/imoveis`, JSON.stringify(dadosImovel)).then(res => {
+        const formData = new FormData();
+        Object.entries(dadosImovel).map(([chave, valor], index) => {
+            let novovalor = valor
+            if(chave == 'fotos'){
+                valor.map((foto, index) => {
+                    formData.append('fotos', foto.file ? foto.file : foto, `imagem${index}.jpg`)
+                })
+            }
+            formData.append(chave, novovalor)
+        })
+        
+        for (const value of formData.values()) {
+            console.log(value);
+        }
+        api.post(`/imoveis`, formData).then(res => {
             console.log(res.data)
         }).catch(res => console.log(res.response.data))
     }
+
 
     return(
         <>

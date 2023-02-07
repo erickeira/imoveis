@@ -14,18 +14,25 @@ export default function InputSelect(props){
         control: (baseStyles, state) => ({
             ...baseStyles,
             minHeight: 1,
-            paddingTop: 20,
             paddingBottom: 0,
             borderColor:'#fff',
             color: '#000',
-            width: size || '100%',
+            width: '100%',
+             border: state.isFocused ? 0 : 0,
+            // This line disable the blue border
+            boxShadow: state.isFocused ? 0 : 0,
+            '&:hover': {
+            border: state.isFocused ? 0 : 0
+            },
             // boxShadow: '0.2px 0.1px 3px #666',
             ...style,
         })
     };
     return(
         <div className={styles.select} style={{width: size || '100%'}}>
-            <span className={styles.titulo} >{titulo}</span>
+            <div className={styles.containerTitulo}>
+                <span className={styles.titulo} >{titulo}</span>
+            </div>
             <Select 
                 options={options || []} 
                 // className={styles.select} 

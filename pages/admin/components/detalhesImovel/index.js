@@ -46,7 +46,7 @@ export default function DetalhesImovel(props){
                             selecionado={dadosImovel?.bairro}
                             onChange={e => callbackchange({bairro: e.value})} 
                         /> 
-                        <InputTexto titulo={'Endereço'} options={caracteristicas.map(item => { return {value: item, label: item}})} style={{width: 400}}/>
+                        <InputTexto titulo={'Endereço'} value={dadosImovel.endereco} onChange={e => callbackchange({endereco: e})}  style={{width: 400}}/>
                     </div>
 
                     <InputTexto titulo={'Titulo'} style={{width: 400, marginTop: 30, marginBottom: 30}}/>

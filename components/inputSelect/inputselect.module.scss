@@ -2,6 +2,14 @@
 .select::after {
   box-sizing: border-box;
 }
+.select:hover{
+    outline: none;
+    box-shadow: none;
+}
+.select:focus{
+    outline: none;
+    box-shadow: none;
+}
 .select{
     margin-bottom: 10px; 
     border-radius: 4px;
@@ -13,8 +21,6 @@
     border: 0;
     background-color: white;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    position: relative;
-    z-index: 2;
  } 
 .containerSelectLocalidade{
     width: 90%;
@@ -28,12 +34,13 @@
 .selectMaior{
     width: 58%;          
 }
-.titulo{
-    font-size: 14px;
-    color: #666;
-    margin-left: 10px;
-    padding-top: 5px;
-    position: absolute;
-    z-index: 1;
+.containerTitulo{
+    padding-top: 3px;
+    .titulo{
+        font-size: 14px;
+        color: #666;
+        margin-left: 9px;
+    }
 }
+
 
