@@ -46,10 +46,10 @@ export default function DetalhesImovel(props){
                             selecionado={dadosImovel?.bairro}
                             onChange={e => callbackchange({bairro: e.value})} 
                         /> 
-                        <InputTexto titulo={'Endereço'} value={dadosImovel.endereco} onChange={e => callbackchange({endereco: e})}  style={{width: 400}}/>
+                        <InputTexto titulo={'Rua'} value={dadosImovel.rua} onChange={e => callbackchange({rua: e})}  style={{width: 400}}/>
                     </div>
 
-                    <InputTexto titulo={'Titulo'} style={{width: 400, marginTop: 30, marginBottom: 30}}/>
+                    <InputTexto titulo={'Titulo'} value={dadosImovel.titulo} onChange={e => callbackchange({titulo: e})} style={{width: 400, marginTop: 30, marginBottom: 30}}/>
                     <div className={`${styles.flexInput}`}>
                         <InputTexto titulo={'Área Construída'} style={{width: 200}}/>
                         <InputTexto titulo={'Área Total'} style={{width: 200}}/>
@@ -70,9 +70,9 @@ export default function DetalhesImovel(props){
                     </div>
 
                     <div className={`${styles.flexInput}`} style={{marginTop: 40}}>
-                        <InputTexto titulo={'IPTU'} style={{width: 200}}/>
-                        <InputTexto titulo={'Condomínio'} style={{width: 200}}/>
-                        <InputTexto titulo={'Valor'} style={{width: 200}}/>
+                        <InputTexto titulo={'IPTU'} value={dadosImovel.iptu} onChange={e => callbackchange({iptu: e})} style={{width: 200}}/>
+                        <InputTexto titulo={'Condomínio'} value={dadosImovel.condominio} onChange={e => callbackchange({condominio: e})} style={{width: 200}}/>
+                        <InputTexto titulo={'Valor'} value={dadosImovel.valor} onChange={e => callbackchange({valor: e})} style={{width: 200}}/>
                     </div>
                 </div>
             </div> 

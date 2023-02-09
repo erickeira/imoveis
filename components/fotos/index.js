@@ -19,12 +19,11 @@ export default function Fotos(props){
     },[])
 
     const onDrop = (files) => incluirFotos(files)
-    async function incluirFotos(files){
+    function incluirFotos(files){
         setIsLoadingFotos(true)
         let novasImagens = fotos
-        await files.map((file) => {
+        files.map((file) => {
             if(fotos.length == 10) return
-            console.log(file)
             let novaimagem = {}
             novaimagem['file'] = file
             const reader = new FileReader();
@@ -38,7 +37,11 @@ export default function Fotos(props){
         callbackchange(novasImagens)
         setIsLoadingFotos(false)
     }
-    console.log(isLoadingFotos)
+    useEffect(() => {
+        // console.log("atualizou")
+        setIsLoadingFotos(false)
+    },[fotos])
+
     const {
          getRootProps,
          getInputProps,
@@ -117,7 +120,7 @@ export default function Fotos(props){
             <span className={`${styles.titulo}`}>Fotos ( {fotos.length}/10 ) </span>
             <div {...getRootProps({className: 'dropzone'})} style={{cursor: fotos.length ? 'default' : 'pointer'}} className={`${styles.gridContainer} `}>
 
-                {isLoadingFotos ? <div className={`${styles.containerDragActive} `}>Carregando..</div> : null}
+                {isLoadingFotos ? <div className={`${styles.containerDragActive} `}>Carregando...</div> : null}
                 {
                     fotos.map((imagem, index) => {
                         return(

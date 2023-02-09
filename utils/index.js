@@ -5,10 +5,13 @@ const baseUrl = "http://localhost:3000"
 const api = axios.create({
     baseURL: baseUrl,
     headers: {'Content-Type': 'multipart/form-data'}
-  });
+});
 
 const loaderImg = ({ src, width, quality }) => {
     return `${src}`
+}
+const loaderImgBackEnd = ({ src, width, quality }) => {
+    return `http://localhost:3000${src}`
 }
 
 
@@ -129,5 +132,6 @@ export {
     caracteristicas,
     numeros,
     baseUrl,
-    api
+    api,
+    loaderImgBackEnd
 }

@@ -2,29 +2,32 @@ import DetalhesImovel from "../../../components/detalhesImovel";
 import styles from './novoimovel.module.scss'
 import Title from '../../../components/title'
 import Fotos from "../../../components/fotos";
-import { useContext, useState } from "react";
+import React,{ useContext, useState } from "react";
 import { api, bairros, baseUrl } from "../../../utils";
 import Head from "next/head";
 import Button from "../../../components/button";
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import { AuthContext } from "../../../context";
+import TopoAdmin from "../../../components/topoAdmin";
+import { Router, useRouter } from "next/router";
 
 export default function Novoimovel(){
     const { showAlert } = useContext(AuthContext)
+    const router = useRouter()
     const [dadosImovel, setDadosImovel] = useState({
         condicao: 'novo',
         finalidade: 'venda',
         tipo: 'apartamento',
         bairro: 'asdad',
-        endereco: 'asdad',
+        rua: 'asdad',
         titulo: '',
         areaconstruida: '123',
         areatotal: '',
-        caracteristicas: [],
+        caracteristicas: ["1","2"],
         descricao: '',
         infoadicionais: '',
-        quartos: '',
+        quartos: '0',
         garagem: '0',
         salaestar: '0',
         salatv: '0',
@@ -50,10 +53,12 @@ export default function Novoimovel(){
             }
             formData.append(chave, novovalor)
         })
-    
+
         api.post(`/imoveis`, formData).then(res => {
             showAlert.success('Sucesso', `Imóvel publicado - #${res.data.id}`)
+            router.push('/admin/imoveis')
         }).catch(res => {
+            console.log(res)
             showAlert.warning('', res.response.data)
         })
     }
@@ -67,6 +72,7 @@ export default function Novoimovel(){
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
+        <TopoAdmin/>
         <div className={`${styles.container} bgAdmin`}>
             <div className={`${styles.containerDentro} containerTelaAdmin`}>
                 <Title titulo={'NOVO IMÓVEL'}/>
