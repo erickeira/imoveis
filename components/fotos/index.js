@@ -8,15 +8,12 @@ import { useRef, useState, useCallback, createRef, useEffect } from 'react';
 import Dropzone, {useDropzone} from 'react-dropzone';
 import {BsCardImage} from 'react-icons/bs'
 
+
 export default function Fotos(props){
     const dropzoneRef = createRef();
     const { fotos, callbackchange } = props
     const [isLoading ,setIsLoading] = useState(true)
     const [isLoadingFotos ,setIsLoadingFotos] = useState(false)
-
-    useEffect(() => {
-        setIsLoading(false)
-    },[])
 
     const onDrop = (files) => incluirFotos(files)
     function incluirFotos(files){
@@ -24,15 +21,18 @@ export default function Fotos(props){
         let novasImagens = fotos
         files.map((file) => {
             if(fotos.length == 10) return
-            let novaimagem = {}
-            novaimagem['file'] = file
+            let novaimagem = {
+                file : {},
+                src : ''
+            }
+            novaimagem.file = file
             const reader = new FileReader();
             reader.onload = function (e) {
-                novaimagem['src'] = e.target.result
+                novaimagem.src = e.target.result
                 novasImagens.push(novaimagem)
             };
             reader.readAsDataURL(file);
-            return file;
+            // return file;
         });
         callbackchange(novasImagens)
         setIsLoadingFotos(false)
@@ -106,7 +106,7 @@ export default function Fotos(props){
                     alt="Casa"
                     fill
                     className={styles.imagem}
-                    unoptimized
+                    // unoptimized
                 />
                 <div onClick={() => removerImagem(e.index)} className={styles.deleteContainer}>
                     <FaTrashAlt/>
@@ -120,13 +120,15 @@ export default function Fotos(props){
             <span className={`${styles.titulo}`}>Fotos ( {fotos.length}/10 ) </span>
             <div {...getRootProps({className: 'dropzone'})} style={{cursor: fotos.length ? 'default' : 'pointer'}} className={`${styles.gridContainer} `}>
 
-                {isLoadingFotos ? <div className={`${styles.containerDragActive} `}>Carregando...</div> : null}
+               
                 {
+                    !isLoadingFotos ?
                     fotos.map((imagem, index) => {
                         return(
                             <DragImagem index={index} src={imagem.src ? imagem.src : imagem}/>
                         )
                     })
+                    : null
                 }
                 {
                     fotos.length && fotos.length < 10?
