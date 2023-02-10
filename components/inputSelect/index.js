@@ -4,7 +4,7 @@ import Select from 'react-select'
 
 
 export default function InputSelect(props){
-    const { onChange, value, options, titulo, size, isMulti, style, selecionado} = props
+    const { onChange, value, options, titulo, size, isMulti, style, selecionado, className} = props
     // const options = [
     //     { value: 'Selecione', label: 'Selecione' },
     //     { value: 'Venda', label: 'Venda' },
@@ -29,7 +29,7 @@ export default function InputSelect(props){
         })
     };
     return(
-        <div className={styles.select} style={{width: size || '100%'}}>
+        <div className={`${styles.select} ${className}`}>
             <div className={styles.containerTitulo}>
                 <span className={styles.titulo} >{titulo}</span>
             </div>

@@ -24,11 +24,11 @@ export default function FormBusca(props){
                 {!horizontal ? <div className={styles.label}>BUSQUE O IMÓVEL DESEJADO</div> : null}
                 <div className={styles.inputsHorizontais}>
                     <div className={styles.inputHorizontal}>
-                        <InputSelect size={'90%'} onChange={e => mudarDadosBusca({finalidade : e.value})} selecionado={dadosBusca.finalidade} options={finalidades.map(item => { return {value: item, label: item}})}    titulo={'Finalidade'}/>
-                        <InputSelect size={'90%'} onChange={e => mudarDadosBusca({tipodeimovel : e.value})} selecionado={dadosBusca.tipodeimovel} options={tiposdeimovel.map(item => { return {value: item, label: item}})} titulo={'Tipo de imóvel'}/>
+                        <InputSelect className={`${styles.select}`} onChange={e => mudarDadosBusca({finalidade : e.value})} selecionado={dadosBusca.finalidade} options={finalidades.map(item => { return {value: item, label: item}})}    titulo={'Finalidade'}/>
+                        <InputSelect className={`${styles.select}`} onChange={e => mudarDadosBusca({tipodeimovel : e.value})} selecionado={dadosBusca.tipodeimovel} options={tiposdeimovel.map(item => { return {value: item, label: item}})} titulo={'Tipo de imóvel'}/>
                     </div>
                     <div className={styles.inputHorizontal}>
-                        <InputSelect size={'90%'} onChange={e => mudarDadosBusca({bairros : e.map(item => {return e.value})})} selecionado={dadosBusca.finalidade} options={bairros.map(item => { return {value: item, label: item}})} titulo={'Bairros'} isMulti/>
+                        <InputSelect className={`${styles.select}`} onChange={e => mudarDadosBusca({bairros : e.map(item => {return e.value})})} selecionado={dadosBusca.finalidade} options={bairros.map(item => { return {value: item, label: item}})} titulo={'Bairros'} isMulti/>
                         <InputSlider notitle/>
                     </div>
                     <div className={styles.botaoBuscar}>

@@ -36,15 +36,17 @@ export default function CardImovelAdmin({data, callbackdelete}){
     } = data
     return(
         <div className={styles.container}>
-            <div className={styles.imagem}>
-                <Image
-                    // loader={loaderImgBackEnd}
-                    src={`http://localhost:3000/images/${fotos[0]}`}
-                    alt="Casa"
-                    fill
-                    className={styles.imagemHover}
-                    unoptimized
-                />
+            <div className={styles.containerImagem}>
+                <div className={styles.imagem}>
+                    <Image
+                        // loader={loaderImgBackEnd}
+                        src={`http://localhost:3000/images/${fotos[0]}`}
+                        alt="Casa"
+                        fill
+                        className={styles.imagemHover}
+                        unoptimized
+                    />
+                </div>
             </div>
             <div className={styles.descricao}>
                 <div  className={styles.titulo}>{titulo || 'Sem título'}</div>
@@ -57,7 +59,7 @@ export default function CardImovelAdmin({data, callbackdelete}){
             </div> 
             <div className={styles.terceiroContainer}>
                 <div className={styles.containerBotoes}>
-                    <div onClick={() => callbackdelete(id)} className={styles.editContainer}>
+                    <div onClick={() => console.log(id)} className={styles.editContainer}>
                         <MdEdit  className={styles.iconEdit}/>
                     </div>
                     <div onClick={() => callbackdelete(id)} className={styles.deleteContainer}>

@@ -1,18 +1,110 @@
 .container{
     .containerDentro{
         .containerForm{
-            padding: 20px 0;
+            padding: 20px 10px;
             .label{
                font-weight: 600;
                margin-top: 20px;
                margin-bottom: 10px;
             }
             .flexInput{
+                width: 100%;
                 display: flex;
                 flex-direction: row;
                 gap: 25px;
                 z-index: 10;
             }
+            .bairro{
+                width: 30%;
+            }
+            .rua{
+                width: 40%;
+            }
+            .area{
+                width: 30%;
+            }
+            .titulo{
+                width: 50%;
+            }
+            .caracteristicas{
+                width: 50%;
+            }
+            .valores{
+                width: 25%;
+            }
         }
     }
+}
+
+@media screen and (max-width: 766px) {
+    .container{
+        .containerDentro{
+            .containerForm{
+                padding: 20px 10px;
+                .label{
+                   font-weight: 600;
+                   margin-top: 20px;
+                   margin-bottom: 10px;
+                }
+                .flexInput{
+                    width: 100%;
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    z-index: 10;
+                    .condicao{
+                        width: 49%;
+                    }
+                    .finalidade{
+                        width: 49%;
+                    }
+                    .bairro{
+                        width: 100%;
+                    }
+                    .rua{
+                       width:  100%
+                    }
+                    .valores{
+                        width: 100%;
+                    }
+                }
+                .titulo{
+                    width: 97%;
+                }
+                .caracteristicas{
+                    width: 100%;
+                }
+                .area{
+                    width: 45%;
+                }
+            }
+        }
+    }
+    
+}
+@media screen and (max-width: 500px) {
+    .container{
+        .containerDentro{
+            .containerForm{
+                .flexInput{
+                    .condicao{
+                        width: 100%;
+                    }
+                    .finalidade{
+                        width: 100%;
+                    }
+                }
+                .titulo{
+                    width: 97%;
+                }
+                .caracteristicas{
+                    width: 100%;
+                }
+                .area{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    
 }

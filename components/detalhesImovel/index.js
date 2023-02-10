@@ -16,23 +16,25 @@ export default function DetalhesImovel(props){
                             titulo={'Condição'} 
                             options={condicoes.map(item => { return {value: item, label: item}})} 
                             style={{borderColor: '#fff'}} 
-                            size={230}
+                            // size={230}
                             selecionado={dadosImovel?.condicao}
+                            className={`${styles.condicao}`}
                         />
                         <InputSelect 
                             onChange={e => callbackchange({finalidade: e.value})} 
                             titulo={'Finalidade'} 
                             options={finalidades.map(item => { return {value: item, label: item}})} 
                             style={{borderColor: '#fff'}} 
-                            size={230}
+                            // size={230}
                             selecionado={dadosImovel?.finalidade}
+                            className={`${styles.finalidade}`}
                         />
                         <InputSelect 
                             onChange={e => callbackchange({tipo: e.value})} 
                             titulo={'Tipo de imóvel'} 
                             options={tiposdeimovel.map(item => { return {value: item, label: item}})} 
                             style={{borderColor: '#fff'}} 
-                            size={300}
+                            // size={300}
                             selecionado={dadosImovel?.tipo}
                         />
                     </div>
@@ -42,24 +44,30 @@ export default function DetalhesImovel(props){
                             titulo={'Bairro'} 
                             options={bairros.map(item => { return {value: item, label: item}})} 
                             style={{borderColor: '#fff'}} 
-                            size={230}
+                            // size={230}
                             selecionado={dadosImovel?.bairro}
-                            onChange={e => callbackchange({bairro: e.value})} 
+                            onChange={e => callbackchange({bairro: e.value})}
+                            className={`${styles.bairro}`}
                         /> 
-                        <InputTexto titulo={'Rua'} value={dadosImovel.rua} onChange={e => callbackchange({rua: e})}  style={{width: 400}}/>
+                        <InputTexto 
+                            titulo={'Rua'} 
+                            value={dadosImovel.rua} 
+                            onChange={e => callbackchange({rua: e})} 
+                            className={`${styles.rua}`}
+                        />
                     </div>
 
-                    <InputTexto titulo={'Titulo'} value={dadosImovel.titulo} onChange={e => callbackchange({titulo: e})} style={{width: 400, marginTop: 30, marginBottom: 30}}/>
+                    <InputTexto titulo={'Titulo'} className={`${styles.titulo}`} value={dadosImovel.titulo} onChange={e => callbackchange({titulo: e})} style={{marginTop: 30, marginBottom: 30}}/>
                     <div className={`${styles.flexInput}`}>
-                        <InputTexto titulo={'Área Construída'} style={{width: 200}}/>
-                        <InputTexto titulo={'Área Total'} style={{width: 200}}/>
+                        <InputTexto titulo={'Área Construída'} className={`${styles.area}`}/>
+                        <InputTexto titulo={'Área Total'} className={`${styles.area}`}/>
                     </div>
 
                     <div className={`${styles.label}`}>Características</div>
-                    <InputSelect titulo={'Características'} style={{borderColor: '#fff'}} size={230}/>
+                    <InputSelect className={`${styles.caracteristicas}`} titulo={'Características'} style={{borderColor: '#fff'}} size={230}/>
                     <div className={`${styles.flexInput}`}>
-                        <InputArea titulo={'Descrição'} size={500}/>
-                        <InputArea titulo={'Informações adicionais'} size={500}/>
+                        <InputArea titulo={'Descrição'} />
+                        <InputArea titulo={'Informações adicionais'} />
                     </div>
                     <div className={`${styles.flexInput}`} style={{marginTop: 30}}>
                         <InputSelect titulo={'Quartos'} options={numeros.map(item => { return {value: item, label: item}})} style={{borderColor: '#fff'}} size={190}/>
@@ -70,9 +78,9 @@ export default function DetalhesImovel(props){
                     </div>
 
                     <div className={`${styles.flexInput}`} style={{marginTop: 40}}>
-                        <InputTexto titulo={'IPTU'} value={dadosImovel.iptu} onChange={e => callbackchange({iptu: e})} style={{width: 200}}/>
-                        <InputTexto titulo={'Condomínio'} value={dadosImovel.condominio} onChange={e => callbackchange({condominio: e})} style={{width: 200}}/>
-                        <InputTexto titulo={'Valor'} value={dadosImovel.valor} onChange={e => callbackchange({valor: e})} style={{width: 200}}/>
+                        <InputTexto titulo={'IPTU'} value={dadosImovel.iptu} onChange={e => callbackchange({iptu: e})} className={`${styles.valores}`}/>
+                        <InputTexto titulo={'Condomínio'} value={dadosImovel.condominio} onChange={e => callbackchange({condominio: e})} className={`${styles.valores}`}/>
+                        <InputTexto titulo={'Valor'} value={dadosImovel.valor} onChange={e => callbackchange({valor: e})} className={`${styles.valores}`}/>
                     </div>
                 </div>
             </div> 

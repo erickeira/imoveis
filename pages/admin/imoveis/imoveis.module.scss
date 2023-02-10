@@ -2,15 +2,59 @@
     min-height: 800px;
 
     .containerDentro{
-        .containerImoveis{
-            width: 100%;
-        }
-        .containerNenhumImovel{
-            width: 100%;
+        .containerFiltroImoveis{
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 300px;
+            justify-content: space-between;
+            padding: 10px;
+            .containerFiltro{
+                width: 30%;
+                .titulo{
+                    font-size: 18px;
+                    margin: 10px 0;
+                }
+            }
+            .containerImoveis{
+                width: 65%;
+            }
+            .containerNenhumImovel{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 300px;
+            }
+        }
+      
+    }
+}
+@media screen and (max-width: 766px) {
+    .container{
+        min-height: 800px;
+    
+        .containerDentro{
+            .containerFiltroImoveis{
+                display:block;
+                justify-content: space-between;
+                padding: 10px;
+                .containerFiltro{
+                    display: none;
+                    .titulo{
+                        font-size: 18px;
+                        margin: 10px 0;
+                    }
+                }
+                .containerImoveis{
+                    width: 100%;
+                }
+                .containerNenhumImovel{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 300px;
+                }
+            }
+          
         }
     }
 }
