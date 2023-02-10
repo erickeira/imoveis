@@ -39,6 +39,7 @@ export default function Novoimovel(){
     })
 
     function mudarDadosImovel(e){
+        console.log(e)
         setDadosImovel({...dadosImovel, ...e})
     }
 
@@ -63,7 +64,7 @@ export default function Novoimovel(){
         })
     }
 
-
+    console.log(dadosImovel)
     return(
         <>
         <Head>
