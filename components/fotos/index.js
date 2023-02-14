@@ -12,36 +12,45 @@ import {BsCardImage} from 'react-icons/bs'
 export default function Fotos(props){
     const dropzoneRef = createRef();
     const { fotos, callbackchange } = props
+    const [fotosAtualizadas, setFotosAtualizadas] = useState(fotos);
     const [isLoading ,setIsLoading] = useState(true)
     const [isLoadingFotos ,setIsLoadingFotos] = useState(false)
 
     const onDrop = (files) => incluirFotos(files)
-    function incluirFotos(files){
-        setIsLoadingFotos(true)
-        let novasImagens = fotos
-        files.map((file) => {
-            if(fotos.length == 10) return
-            let novaimagem = {
-                file : {},
-                src : ''
-            }
-            novaimagem.file = file
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                novaimagem.src = e.target.result
-                novasImagens.push(novaimagem)
-            };
-            reader.readAsDataURL(file);
-            // return file;
-        });
-        callbackchange(novasImagens)
-        setIsLoadingFotos(false)
-    }
-    useEffect(() => {
-        // console.log("atualizou")
-        setIsLoadingFotos(false)
-    },[fotos])
 
+    function incluirFotos(files) {
+        setIsLoadingFotos(true);
+        let novasImagens = fotosAtualizadas;
+        const promises = [];
+        files.forEach((file) => {
+          if (fotos.length === 10) return;
+          let novaImagem = {
+            file: {},
+            src: "",
+          };
+          novaImagem.file = file;
+          const reader = new FileReader();
+          const promise = new Promise((resolve) => {
+            reader.onload = function (e) {
+              novaImagem.src = e.target.result;
+              novasImagens.push(novaImagem);
+              resolve();
+            };
+          });
+          reader.readAsDataURL(file);
+          promises.push(promise);
+        });
+        Promise.all(promises)
+          .then(() => {
+            setFotosAtualizadas(novasImagens);
+            callbackchange(novasImagens);
+            setIsLoadingFotos(false);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+  
     const {
          getRootProps,
          getInputProps,
@@ -72,6 +81,7 @@ export default function Fotos(props){
     function removerImagem(index){
         let novasImagens = fotos
         novasImagens.splice(index, 1);
+        setFotosAtualizadas(novasImagens)
         callbackchange(novasImagens)
     }
 
@@ -117,13 +127,13 @@ export default function Fotos(props){
     // if(isLoading) return null
     return(
         <div className={`${styles.container}`}>
-            <span className={`${styles.titulo}`}>Fotos ( {fotos.length}/10 ) </span>
-            <div {...getRootProps({className: 'dropzone'})} style={{cursor: fotos.length ? 'default' : 'pointer'}} className={`${styles.gridContainer} `}>
+            <span className={`${styles.titulo}`}>Fotos ( {fotosAtualizadas.length}/10 ) </span>
+            <div {...getRootProps({className: 'dropzone'})} style={{cursor: fotosAtualizadas.length ? 'default' : 'pointer'}} className={`${styles.gridContainer} `}>
 
                
                 {
                     !isLoadingFotos ?
-                    fotos.map((imagem, index) => {
+                    fotosAtualizadas.map((imagem, index) => {
                         return(
                             <DragImagem index={index} src={imagem.src ? imagem.src : imagem}/>
                         )
@@ -131,7 +141,7 @@ export default function Fotos(props){
                     : null
                 }
                 {
-                    fotos.length && fotos.length < 10?
+                    fotosAtualizadas.length && fotosAtualizadas.length < 10?
                     <div {...getRootProps({className: 'dropzone'})} onClick={open} className={styles.containerImagem} style={{cursor: 'pointer'}}>
                         <GrAdd size={20}/>
                         <span>Adicionar</span>
@@ -140,7 +150,7 @@ export default function Fotos(props){
 
                 }
                 {
-                    !fotos.length ?
+                    !fotosAtualizadas.length ?
                     <div  className={styles.addContainer} style={{cursor: 'pointer'}}>
                         <BsCardImage size={40}/>
                         <span>Arraste ou clique para selecionar</span>

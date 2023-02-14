@@ -16,15 +16,15 @@ export default function Novoimovel(){
     const { showAlert } = useContext(AuthContext)
     const router = useRouter()
     const [dadosImovel, setDadosImovel] = useState({
-        condicao: 'novo',
-        finalidade: 'venda',
-        tipo: 'apartamento',
-        bairro: 'asdad',
-        rua: 'asdad',
+        condicao: '',
+        finalidade: '',
+        tipo: '',
+        bairro: '',
+        rua: '',
         titulo: '',
-        areaconstruida: '123',
+        areaconstruida: '',
         areatotal: '',
-        caracteristicas: ["1","2"],
+        caracteristicas: [],
         descricao: '',
         infoadicionais: '',
         quartos: '0',

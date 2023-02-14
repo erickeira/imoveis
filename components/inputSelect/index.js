@@ -4,7 +4,7 @@ import Select from 'react-select'
 
 
 export default function InputSelect(props){
-    const { onChange, value, options, titulo, size, isMulti, style, selecionado, className} = props
+    const { onChange, value, options, titulo, size, isMulti, style, selecionado,selecionados, className} = props
     // const options = [
     //     { value: 'Selecione', label: 'Selecione' },
     //     { value: 'Venda', label: 'Venda' },
@@ -28,6 +28,17 @@ export default function InputSelect(props){
             ...style,
         })
     };
+
+    function retornaValor(e){
+        if(onChange) onChange(e)
+    }
+
+    function getSelecionado(){
+        if(selecionados) return options.filter(obj => selecionados.includes(obj.value));
+        if(selecionado) return {value: selecionado, label: selecionado}
+        return null
+    }
+
     return(
         <div className={`${styles.select} ${className}`}>
             <div className={styles.containerTitulo}>
@@ -36,11 +47,12 @@ export default function InputSelect(props){
             <Select 
                 options={options || []} 
                 // className={styles.select} 
+                placeholder="Selecione"
                 styles={colourStyles}
-                value={{value: selecionado || 'Selecione', label: selecionado || 'Selecione'}}
+                value={getSelecionado()}
                 noOptionsMessage={() => {return 'Nenhum encontrado'}}
                 isMulti={isMulti || false}
-                onChange={e => {if(onChange) onChange(e)}}
+                onChange={e => retornaValor(e)}
             />
         </div>
     )

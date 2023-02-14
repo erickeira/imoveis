@@ -17,19 +17,19 @@ export default function InputTexto(props){
     }
 
     function formatBRL(value) {
-        return value;
+        return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
     }
 
     const formatMeters = (value) => {
         return value;
     };
-      
+     
     return(
         <div className={`${styles.container} ${className}`} style={style}>
             <span className={`${styles.titulo}`}>{titulo}</span>
             <div style={{display: 'flex', alignItems: 'center'}}>
                 <div style={{fontSize: 14, marginRight: 5}}>{exibeTipo()}</div>
-                <input type={type || 'text'} value={formatarValor(value) || ''} placeholder={placeholder || ''} onChange={e => onChange(e.target.value)} className={`${styles.input}`}/>
+                <input type={type || 'text'} value={value || ''} placeholder={placeholder || ''} onChange={e => onChange(formatarValor(e.target.value))} className={`${styles.input}`}/>
             </div>
         </div>
     )

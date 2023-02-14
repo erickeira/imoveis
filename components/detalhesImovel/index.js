@@ -76,7 +76,19 @@ export default function DetalhesImovel(props){
                     </div>
 
                     <div className={`${styles.label}`}>Características</div>
-                    <InputSelect className={`${styles.caracteristicas}`} titulo={'Características'} style={{borderColor: '#fff'}} size={230}/>
+                    <InputSelect 
+                        className={`${styles.caracteristicas}`} 
+                        titulo={'Características'} 
+                        style={{borderColor: '#fff'}} 
+                        size={230}
+                        onChange={e => callbackchange({caracteristicas: e.map(e => {
+                            return e.value
+                        })})} 
+                        options={caracteristicas.map(item => { return {value: item, label: item}})} 
+                        // size={230}
+                        selecionados={dadosImovel?.caracteristicas}
+                        isMulti
+                    />
                     <div className={`${styles.flexInput}`}>
                         <InputArea titulo={'Descrição'} />
                         <InputArea titulo={'Informações adicionais'} />
