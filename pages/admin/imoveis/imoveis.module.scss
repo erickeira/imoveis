@@ -8,9 +8,22 @@
             padding: 10px;
             .containerFiltro{
                 width: 30%;
-                .titulo{
-                    font-size: 18px;
-                    margin: 10px 0;
+                .containerTituloFiltro{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    .titulo{
+                        font-size: 18px;
+                        margin: 10px 0;
+                    }
+                    .limpar{
+                        font-size: 14px;
+                        font-weight: 500;
+                        margin: 10px 0;
+                        cursor: pointer;
+                        color: #BE4A31;
+                    }
                 }
             }
             .containerImoveis{
@@ -38,9 +51,17 @@
                 padding: 10px;
                 .containerFiltro{
                     display: none;
-                    .titulo{
-                        font-size: 18px;
-                        margin: 10px 0;
+                    .containerTituloFiltro{
+                        display: flex;
+                        flex-direction: row;
+                        .titulo{
+                            font-size: 18px;
+                            margin: 10px 0;
+                        }
+                        .limpar{
+                            font-size: 18px;
+                            margin: 10px 0;
+                        }
                     }
                 }
                 .containerImoveis{

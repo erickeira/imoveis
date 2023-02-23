@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { loaderImg, loaderImgBackEnd } from "../../utils/";
+import { formatarReal, loaderImg, loaderImgBackEnd } from "../../utils/";
 import  styles  from './cardimoveladmin.module.scss'
 import {MdOutlineBed} from 'react-icons/md'
 import {GiBathtub } from 'react-icons/gi'
@@ -51,11 +51,11 @@ export default function CardImovelAdmin({data, callbackdelete}){
             <div className={styles.descricao}>
                 <div  className={styles.titulo}>{titulo || 'Sem título'}</div>
                 <div style={{display: 'flex', height: 20, alignItems: 'center'}}>
-                    <div  className={styles.finalidade}>{finalidade || ''}</div>
-                    <div  className={styles.tipo}>{tipo || ''}</div>
+                    <div  className={styles.finalidade} style={{backgroundColor: finalidade == 'Venda' ? '#2DC9BF' : '#5F2DC9'}}>{finalidade || ''}</div>
+                    <div className={styles.tipo} >{tipo || ''}</div>
                 </div>
-                <div  className={styles.localidade}><BiMap style={{marginRight: 10}}/>{bairro || ''} </div>
-                <div  className={styles.valor}>{valor || ''}</div>
+                <div  className={styles.localidade}><BiMap style={{marginRight: 10}}/>{rua || ''}{rua && bairro ? ' - ': ''}{bairro || ''}</div>
+                <div  className={styles.valor}>{valor ? formatarReal(valor) : ''}</div>
             </div> 
             <div className={styles.terceiroContainer}>
                 <div className={styles.containerBotoes}>

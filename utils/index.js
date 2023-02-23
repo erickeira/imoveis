@@ -14,6 +14,13 @@ const loaderImgBackEnd = ({ src, width, quality }) => {
     return `http://localhost:3000${src}`
 }
 
+function formatarReal(valor) {
+    return 'R$ ' + valor.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+}
+  
+function primeiraLetraMaiuscula(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
 const condicoes = [
     'Novo',
@@ -182,5 +189,7 @@ export {
     numeros,
     baseUrl,
     api,
-    loaderImgBackEnd
+    loaderImgBackEnd,
+    formatarReal,
+    primeiraLetraMaiuscula
 }

@@ -1,0 +1,38 @@
+.container{
+    height: 100%;
+    .containerDentro{
+        height: 100%;
+        .titulo{
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .containerCard{
+            // background-color: #fff;
+            width: 400px;
+            height: 450px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+
+            .input{
+                width: 95%;
+                margin: 10px;
+            }
+        }
+        .loader{
+            width: 400px;
+            height: 450px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto
+        }
+    }
+}

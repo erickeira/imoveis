@@ -2,7 +2,7 @@ import DetalhesImovel from "../../../components/detalhesImovel";
 import styles from './novoimovel.module.scss'
 import Title from '../../../components/title'
 import Fotos from "../../../components/fotos";
-import React,{ useContext, useEffect, useState } from "react";
+import React,{ useContext, useState } from "react";
 import { api, bairros, baseUrl } from "../../../utils";
 import Head from "next/head";
 import Button from "../../../components/button";
@@ -13,8 +13,7 @@ import TopoAdmin from "../../../components/topoAdmin";
 import { Router, useRouter } from "next/router";
 
 export default function Novoimovel(){
-    const { showAlert, isLogado } = useContext(AuthContext)
-    const [publicando, setPublicando] = useState(false)
+    const { showAlert } = useContext(AuthContext)
     const router = useRouter()
     const [dadosImovel, setDadosImovel] = useState({
         condicao: '',
@@ -39,19 +38,11 @@ export default function Novoimovel(){
         fotos: [ ]
     })
 
-    useEffect(() => {
-        if(!isLogado) return () =>{
-            router.push('/admin')
-        } 
-    },[])
-
-
     function mudarDadosImovel(e){
         setDadosImovel({...dadosImovel, ...e})
     }
 
     async function publicarImovel(){
-        setPublicando(true)
         const formData = new FormData();
         Object.entries(dadosImovel).map(([chave, valor], index) => {
             let novovalor = valor
@@ -69,11 +60,10 @@ export default function Novoimovel(){
         }).catch(res => {
             console.log(res)
             showAlert.warning('', res.response.data)
-            setPublicando(false)
         })
     }
 
-    if(!isLogado) return null
+    console.log(dadosImovel)
     return(
         <>
         <Head>
@@ -89,7 +79,7 @@ export default function Novoimovel(){
                 <DetalhesImovel dadosImovel={dadosImovel} callbackchange={e => mudarDadosImovel(e)} />
                 <Fotos fotos={dadosImovel.fotos} callbackchange={e => mudarDadosImovel({fotos: e})}/>
                 <div style={{width: '99%',display: 'flex', justifyContent: 'flex-end'}}>
-                    <Button onClick={() => publicarImovel()} loading={publicando} titulo={`Salvar`}/>
+                    <Button onClick={() => publicarImovel()}  titulo={`Salvar`}/>
                 </div>
                 <div style={{height: 200}}/>
             </div> 

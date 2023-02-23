@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './topoadmin.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -9,10 +9,14 @@ import { useState } from 'react'
 import ReactModal from 'react-modal';
 import FormBusca from '../formBusca'
 import { AiOutlineClose } from 'react-icons/ai'
+import { AuthContext } from '../../context'
+import { useRouter } from 'next/router'
 
 export default function TopoAdmin(){
+    const {isLogado, deslogar} = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [buscando, setBuscando] = useState(false)
+    const router = useRouter()
 
     function openModal() {
         setBuscando(true);
@@ -34,6 +38,12 @@ export default function TopoAdmin(){
                 <AiOutlineSearch size={30} className={styles.botaoMenuMobile}/>
             </div>
         )
+    }
+
+    function handleDeslogar(){
+        deslogar().then(() => {
+            router.push('/admin')
+        })
     }
 
     const customStyles = {
@@ -61,39 +71,43 @@ export default function TopoAdmin(){
                         />
                     </Link>
                 </div>
-                
-                <nav>
-                    <ul className={styles.containerLinks}>
-                        <li>
-                            <Link  href="/admin/imoveis" className={styles.textoLink}>MEUS IMÓVEIS</Link>
-                        </li>   
-                        <li>
-                            <Link  href="/"  className={styles.textoLink}>PERFIL</Link>
-                        </li>
-                        <li>
-                            <Link  href="/"  className={styles.textoLink}>SAIR</Link>
-                        </li>
-                    </ul>
+                {
+                    isLogado ? 
+                    <nav>
+                        <ul className={styles.containerLinks}>
+                            <li>
+                                <Link  href="/admin/imoveis" className={styles.textoLink}>MEUS IMÓVEIS</Link>
+                            </li>   
+                            <li>
+                                <Link  href="/"  className={styles.textoLink}>PERFIL</Link>
+                            </li>
+                            <li>
+                            <div onClick={() => handleDeslogar()} className={styles.textoLink}>SAIR</div>
+                            </li>
+                        </ul>
 
-                    <div className={styles.iconesMenuMobile}>
-                        {/* <BuscarMobile/> */}
-                        <div className={styles.botaoMenuMobile} onClick={() => setIsMenuOpen(!isMenuOpen)}> 
-                            <BiMenuAltRight size={40} className={styles.botaoMenuMobile}/>
+                        <div className={styles.iconesMenuMobile}>
+                            {/* <BuscarMobile/> */}
+                            <div className={styles.botaoMenuMobile} onClick={() => setIsMenuOpen(!isMenuOpen)}> 
+                                <BiMenuAltRight size={40} className={styles.botaoMenuMobile}/>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <ul className={isMenuOpen ? styles.containerLinksMobile :  styles.containerLinksFechado}>
-                        <li>
-                            <Link  href="/admin/imoveis" className={styles.textoLink}>MEUS IMÓVEIS</Link>
-                        </li>   
-                        <li>
-                            <Link  href="/"  className={styles.textoLink}>PERFIL</Link>
-                        </li>
-                        <li>
-                            <Link  href="/"  className={styles.textoLink}>SAIR</Link>
-                        </li>
-                    </ul>
-                </nav>
+                        
+                        <ul className={isMenuOpen ? styles.containerLinksMobile :  styles.containerLinksFechado}>
+                            <li>
+                                <Link  href="/admin/imoveis" className={styles.textoLink}>MEUS IMÓVEIS</Link>
+                            </li>   
+                            <li>
+                                <Link  href="/"  className={styles.textoLink}>PERFIL</Link>
+                            </li>
+                            <li>
+                                <div onClick={() => handleDeslogar()} className={styles.textoLink}>SAIR</div>
+                            </li>
+                        </ul>
+                    </nav>
+                    : null
+                }
+                
             </div>
         </div>
     )

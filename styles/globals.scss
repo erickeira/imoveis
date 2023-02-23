@@ -4,23 +4,29 @@
     margin: 0;
     padding: 0;
     border: 0;
+
 }
 .body{
     padding: none;
+    height: 100%;
 }
+
 .containerTela {
     max-width: 1582px;
     padding: 0 0px;
     margin: 0 auto;
+    height: 100%;
+
 }
 .containerTelaAdmin {
     max-width: 1050px;
     padding: 0 0px;
     margin: 0 auto;
+    height: 100%;
 }
 .bgAdmin{
     background-color: #EDEDED;
-    // min-height: 1000px;
+    height: 100%;
 }
 .doisSelect{
     width: 90%;

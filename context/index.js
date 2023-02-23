@@ -7,6 +7,18 @@ import styles from './context.module.scss'
 export const AuthContext = createContext({})
 
 export default function AuthProvider({children}){
+    const [isLogado, setIsLogado] = useState(false)
+
+    async function fazerLogin (){
+        setIsLogado(true)
+        return true
+    }
+
+    async function deslogar(){
+        setIsLogado(false)
+        return true
+    }
+
     const [dadosAlert, setDadosAlert] = useState({
         tipo: 'success',
         titulo: '',
@@ -28,11 +40,15 @@ export default function AuthProvider({children}){
         }, tempo || 3000)
     }
 
-    // showAlert.sucess('')
-
+    console.log(isLogado)
     return(
         <AuthContext.Provider 
-          value={{ showAlert }}
+            value={{ 
+                showAlert,
+                fazerLogin,
+                isLogado,
+                deslogar
+            }}
         >
             {children}
             {
