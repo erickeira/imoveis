@@ -32,3 +32,40 @@
         margin-left: 10%;
     }
 }
+
+
+.containerFilter{
+    height: 250px;
+    width: 100%;
+    .containerImgs1{
+        background-image: url("/slide/img01.jpg");
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        overflow: hidden;
+        height: 250px;
+        width: 100%;
+        z-index: -1;
+        right: 0;
+        .containerImagemSlide{
+            width: 1400px;
+            height: 600px;
+        }
+    }
+    .containerDentroFilter{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 0 10px;
+    }
+    
+
+}
+
+@media screen and (max-width: 766px) {
+    .containerFilter{
+        display: none;
+    }
+}

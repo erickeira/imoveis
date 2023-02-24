@@ -1,5 +1,5 @@
 .container{
-    height: 600px;
+    height: 650px;
     padding: 30px 0;
     display: flex;
     .containerImagem{
@@ -14,13 +14,17 @@
     .containerFormulario{
         width: 50%;
         padding: 35px 0;
-        height: 500px;
+        height: 570px;
         background-color: #00a3de;
         border: 0.1px solid #666;
         border-radius: 4px;
         .containerInputs{
             padding: 5%;
             justify-content: center;
+            .input{
+                width: 95% ;
+                margin-top: 10px;
+            }
         }
         .titulo{
             font-weight: 600;
@@ -49,7 +53,7 @@
 }
 @media screen and (max-width: 766px) {
     .container{
-        height: 600px;
+        height: 750px;
         padding: 30px 0;
         display: flex;
         .containerImagem{
@@ -58,7 +62,7 @@
         .containerFormulario{
             width: 80%;
             margin: 0 10%;
-            height: 500px;
+            height: 570px;
             background-color: #00a3de;
             border: 0.1px solid #666;
             border-radius: 4px;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import styles from './contato.module.scss'
 import InputTexto from "../../components/inputTexto";
@@ -10,6 +10,16 @@ import Topo from "../../components/topo";
 import Rodape from "../../components/rodape";
 
 export default function Contato(){
+    const [formularioContato, setFormularioContato] = useState({
+        nome: '',
+        email: '',
+        telefone:'',
+        mensagem: ''
+    })
+
+    function mudarFormulario(e){
+        setFormularioContato({...formularioContato, ...e})
+    }
     return(
         <>
             <Head>
@@ -32,10 +42,10 @@ export default function Contato(){
                 <div className={`${styles.containerFormulario}`}>
                     <div className={`${styles.titulo}`}>DEIXEI SUA MENSAGEM, LOGO ENTRAREMOS EM CONTATO</div>
                     <div className={`${styles.containerInputs}`}>
-                      <InputTexto titulo={'Nome'} type={`text`}/>
-                      <InputTexto titulo={'Email'}  type={`email`}/>
-                      <InputTexto titulo={'Telefone'}  type={`tel`}/>
-                      <InputArea titulo={'Mensagem'}/>
+                      <InputTexto titulo={'Nome'} type={`text`} value={formularioContato.nome} onChange={(e) => mudarFormulario({nome: e})} className={`${styles.input}`}/>
+                      <InputTexto titulo={'Email'}  type={`email`} value={formularioContato.email} onChange={(e) => mudarFormulario({email: e})}  className={`${styles.input}`}/>
+                      <InputTexto titulo={'Telefone'}  type={`tel`} value={formularioContato.telefone} onChange={(e) => mudarFormulario({telefone: e})}  className={`${styles.input}`}/>
+                      <InputArea titulo={'Mensagem'} size={'98%'}value={formularioContato.mensagem}  onChange={(e) => mudarFormulario({mensagem: e})}  style={{marginTop: 10}}/>
                       <div className={`${styles.containerBotaoMensagem}`}>
                         <div className={`${styles.botaoMensagem}`}>Enviar mensagem</div>
                       </div>

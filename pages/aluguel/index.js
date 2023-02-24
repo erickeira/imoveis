@@ -15,7 +15,6 @@ export default function Aluguel(){
             </Head>
             <body>
                 <Topo/>
-                <HorizontalFilter/>
                 <ListImoveis titulo={'aluguel'}/>
                 <Rodape/>
             </body>

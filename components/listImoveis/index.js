@@ -3,12 +3,12 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context";
 import { api, primeiraLetraMaiuscula } from "../../utils";
 import CardImovel from "../cardImovel";
+import FormBusca from "../formBusca";
 import Loader from "../loader";
 import styles from './listimoveis.module.scss'
 
 export default function ListImoveis(props){
     const { titulo } = props
-
     const { showAlert, isLogado } = useContext(AuthContext)
     const router = useRouter()
     const [imoveis, setImoveis] = useState([])
@@ -20,7 +20,7 @@ export default function ListImoveis(props){
     const [dadosFiltro, setDadosFiltro] = useState({
         finalidade: 'Todos',
         tipo: 'Todos',
-        bairro: 'Todos'
+        bairros: ''
     })
     const temFiltros =  Object.entries(dadosFiltro).some(([chave, valor], index) => valor && valor != 'Todos' && valor != 'Todas')
    
@@ -31,12 +31,16 @@ export default function ListImoveis(props){
             let novosFiltros = {
                 finalidade: primeiraLetraMaiuscula(props.titulo),
                 tipo: 'Todos',
-                bairro: 'Todos'
+                bairros: ''
             }
             setDadosFiltro(novosFiltros)
             filtrarImoveis(novosFiltros)
         }
     },[])
+
+    useEffect(() => {
+        GetDadosSelects()
+    },[imoveis])
 
     async function getImoveis(){
         setLoadingImoveis(true)
@@ -58,7 +62,7 @@ export default function ListImoveis(props){
         let novosFiltros = {
             finalidade: 'Todos',
             tipo: 'Todos',
-            bairro: 'Todos'
+            bairros: ''
         }
         setDadosFiltro(novosFiltros)
         filtrarImoveis(novosFiltros)
@@ -74,8 +78,42 @@ export default function ListImoveis(props){
         setImoveisFiltrados(novosImoveis)
         setLoadingImoveis(false)
     }
+    function HorizontalFilter(){
+        return(
+            <div className={styles.containerFilter}>
+                <div  className={`${styles.containerImgs1} slide-container`}>
+                </div>
+                <div className={`containerTela  ${styles.containerDentroFilter}`}>
+                    <FormBusca 
+                        horizontal 
+                        finalidades={finalidades} 
+                        bairros={bairros}
+                        tiposdeimovel={tiposdeimovel}
+                        selecionados={dadosFiltro}
+                        onChange={(e) => mudarFiltro(e)}
+                    />
+                </div>
+            </div>
+        )
+    }
+
+    async function GetDadosSelects(){
+        let novasFinalidades = ['Todas']
+        let novosTipos = ['Todos']
+        let novosBairros = ['Todos']
+        imoveis.map(imovel => {
+            if(!novasFinalidades.includes(imovel.finalidade)) novasFinalidades.push(imovel.finalidade)
+            if(!novosTipos.includes(imovel.tipo)) novosTipos.push(imovel.tipo)
+            if(!novosBairros.includes(imovel.bairro)) novosBairros.push(imovel.bairro)
+        })
+        setFinalidades(novasFinalidades)
+        setTiposDeImovel(novosTipos)
+        setBairros(novosBairros)
+    }
 
     return(
+        <>
+        <HorizontalFilter/>
         <div className={`containerTela`} >
             <h3 className={styles.label}>Imóveis em {titulo} </h3>
             <div className={`${styles.container}`} style={{marginBottom: 50}}>
@@ -112,5 +150,6 @@ export default function ListImoveis(props){
             }
             </div>
         </div>
+        </>
     )
 }

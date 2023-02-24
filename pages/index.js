@@ -19,9 +19,9 @@ export default function Home() {
       </Head>
       <Topo/>
       <main className={styles.main}>
-        <SliderFilter/>
-        <ListImoveis titulo={'destaque'}/>
-        {/* <ListCorretores/> */}
+        {/* <SliderFilter/> */}
+        <ListImoveis titulo={'destaque'} filter/>
+        <ListCorretores/>
       </main>
       <Rodape/>
     </>

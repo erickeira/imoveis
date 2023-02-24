@@ -1,5 +1,4 @@
 import Head from "next/head";
-import HorizontalFilter from "../../components/horizontalFilter";
 import ListImoveis from "../../components/listImoveis";
 import Rodape from "../../components/rodape";
 import Topo from "../../components/topo";
@@ -16,7 +15,6 @@ export default function Venda(){
             </Head>
             <body>
                 <Topo/>
-                <HorizontalFilter/>
                 <ListImoveis titulo={'venda'}/>
                 <Rodape/>
             </body>
